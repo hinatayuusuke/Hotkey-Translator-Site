@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: dark;
-  font-family: Inter, "Segoe UI", sans-serif;
+  color-scheme: light;
+  font-family: "Public Sans", "Segoe UI", sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  background-color: #f7f1e4;
+  color: #1f1a17;
 }
 
 * {
@@ -21,10 +23,120 @@ body,
 body {
   min-width: 320px;
   background:
-    radial-gradient(circle at top, rgb(8 47 73 / 0.45), transparent 40%),
-    rgb(2 6 23);
+    radial-gradient(circle at top left, rgb(245 158 11 / 0.18), transparent 28%),
+    radial-gradient(circle at 82% 10%, rgb(37 99 235 / 0.12), transparent 22%),
+    linear-gradient(180deg, #fffdf7 0%, #f7f1e4 48%, #efe2cf 100%);
+  color: #1f1a17;
 }
 
 a {
   color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgb(37 99 235 / 0.9);
+  color: #fff;
+}
+
+code,
+pre {
+  font-family: "IBM Plex Mono", "Consolas", monospace;
+}
+
+.display-type {
+  font-family: "Fraunces", Georgia, serif;
+}
+
+.section-shell {
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1.5rem;
+}
+
+.surface-panel {
+  border: 1px solid rgb(28 25 23 / 0.1);
+  background: rgb(255 255 255 / 0.72);
+  backdrop-filter: blur(20px);
+  border-radius: 2rem;
+  box-shadow: 0 24px 80px rgb(28 25 23 / 0.1);
+}
+
+.eyebrow {
+  width: fit-content;
+  border-radius: 999px;
+  border: 1px solid rgb(37 99 235 / 0.14);
+  background: rgb(239 246 255 / 0.88);
+  padding: 0.5rem 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #1d4ed8;
+}
+
+.nav-pill {
+  border-radius: 999px;
+  border: 1px solid rgb(28 25 23 / 0.1);
+  background: rgb(255 255 255 / 0.58);
+  padding: 0.7rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #44403c;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    background-color 180ms ease;
+}
+
+.nav-pill:hover {
+  transform: translateY(-1px);
+  border-color: rgb(37 99 235 / 0.28);
+  background: rgb(239 246 255 / 0.88);
+  color: #1d4ed8;
+}
+
+.button-primary,
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.95rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.button-primary {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #fff;
+  box-shadow: 0 18px 40px rgb(37 99 235 / 0.28);
+}
+
+.button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 50px rgb(37 99 235 / 0.33);
+}
+
+.button-secondary {
+  border: 1px solid rgb(28 25 23 / 0.12);
+  background: rgb(255 255 255 / 0.68);
+  color: #1f1a17;
+}
+
+.button-secondary:hover {
+  transform: translateY(-2px);
+  background: rgb(255 255 255 / 0.92);
+}
+
+@media (min-width: 640px) {
+  .section-shell {
+    padding-inline: 2rem;
+  }
 }
