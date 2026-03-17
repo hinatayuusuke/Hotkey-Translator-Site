@@ -39,3 +39,32 @@
 ### Tests / Verification
 - Ran `npm run build` in `site/` and confirmed a successful production build.
 - Verified `site/dist/index.html` emits `/Hotkey-Translator-Site/` asset paths for GitHub Pages project-site hosting.
+
+**2026-03-17 13:35 (Asia/Taipei) — Site placeholder content guide**
+
+### Summary
+- Added a Doc guide that lists remaining placeholder content in the site and what real content should replace it, with Japanese explanations.
+
+### Context / Goal
+- The current GitHub Pages site structure is implemented, but some sections still need real screenshots and final user-facing copy.
+- The goal was to organize those placeholder areas in a single document under `Doc/` so future edits are straightforward.
+
+### Changes
+- Added a new documentation file that maps current site sections to the files and data that should be replaced.
+- Documented what content should be prepared next, including screenshots, install copy, requirements, and link/FAQ follow-ups.
+- Included Japanese guidance for each section so the replacement intent is clear from a product/content perspective.
+
+### Files Touched
+- `Doc/Site_Content_Placeholders.md` — added a placeholder/content replacement guide for the GitHub Pages site.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- No runtime behavior changed.
+- The repository now includes a content planning document for completing the public site with real assets and copy.
+
+### Risk & Mitigation
+- Risk: The guide can drift if the site structure changes later.
+- Mitigation: The document references the current implementation files directly so it can be updated with the same workflow as the site content.
+
+### Tests / Verification
+- 未実施。ドキュメント追加のみで、アプリやサイトの挙動変更はありません。
