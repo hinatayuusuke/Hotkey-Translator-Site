@@ -68,3 +68,33 @@
 
 ### Tests / Verification
 - 未実施。ドキュメント追加のみで、アプリやサイトの挙動変更はありません。
+
+**2026-03-19 16:30 (Asia/Taipei) — Site copy refinement**
+
+### Summary
+- Replaced placeholder-oriented landing page text with more user-facing copy while keeping the current structure and visuals.
+
+### Context / Goal
+- `Doc/Site_Content_Placeholders.md` identified that the site still used developer-oriented or generic placeholder wording.
+- The goal was to revise text only, without changing screenshots or layout structure, so the page communicates user value more clearly.
+
+### Changes
+- Updated hero copy to emphasize the end-user workflow instead of the release process.
+- Revised feature, install, and requirement descriptions to distinguish the base workflow from optional advanced helpers.
+- Tightened build and repository-link descriptions so Releases stays the primary path and source build remains secondary.
+
+### Files Touched
+- `site/src/data/siteContent.ts` — replaced placeholder/generic copy with more user-facing text across hero facts, features, install steps, requirements, build notes, and resource links.
+- `site/src/App.tsx` — updated embedded section headings and supporting copy to match the new content direction.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- No functional behavior changed.
+- The landing page now explains the app more clearly from the visitor's perspective and makes the optional-vs-basic setup split easier to understand.
+
+### Risk & Mitigation
+- Risk: Some install wording is still intentionally generic until the final release package format is fixed.
+- Mitigation: The copy avoids inventing package details and keeps GitHub Releases as the documented source of truth.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the site still builds successfully after the text update.

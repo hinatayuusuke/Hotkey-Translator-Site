@@ -49,82 +49,82 @@ export const externalLinks = {
 export const heroFacts = [
   'Windows 10 / 11 desktop app',
   'Hotkey OCR + translation overlay',
-  'Optional advanced engines and fullscreen flows',
-  'GitHub Releases as the download source of truth',
+  'Works with a reduced feature set without every optional helper',
+  'Download published builds from GitHub Releases',
 ]
 
 export const featureHighlights: FeatureHighlight[] = [
   {
-    title: 'Hotkey-driven capture to overlay',
+    title: 'Read on-screen text without breaking your flow',
     description:
-      'Run OCR and translation without leaving the active window, then read the result directly in the overlay.',
+      'Capture text from games, videos, and desktop apps, then read the OCR and translation result directly in the overlay instead of switching back and forth between tools.',
   },
   {
-    title: 'Multiple capture pipelines',
+    title: 'Repeat fast with hotkeys, ROI presets, and window lock',
     description:
-      'Switch between standard capture based on GDI, WGC, or DXGI, and move into experimental Graphics Hook flows when needed.',
+      'Once the target area is set, you can rerun the same workflow quickly with hotkeys, ROI preset switching, and capture-window locking.',
   },
   {
-    title: 'Engine flexibility',
+    title: 'Choose the OCR and translation stack that fits your setup',
     description:
-      'Mix WinRT, PaddleOCR, PaddleOCR-VL, NDLOCR-Lite, VisionLLM, DeepL, Gemini, Google Web, or Llama.cpp depending on your workflow.',
+      'Use lightweight built-in paths first, then move to PaddleOCR, VisionLLM, DeepL, Gemini, Google Web, or Llama.cpp when your workflow needs different speed, quality, or local inference options.',
   },
   {
-    title: 'Desktop workflow controls',
+    title: 'Use advanced capture paths only when standard capture is not enough',
     description:
-      'ROI selection, ROI preset switching, capture-window locking, scene-change detection, auto-translate, and mirror fullscreen are built for repeated desktop use.',
+      'Standard GDI, WGC, and DXGI capture cover the basic path, while Graphics Hook and mirror fullscreen stay available for harder rendering cases and experimental setups.',
   },
 ]
 
 export const installSteps: InstallStep[] = [
   {
     number: '01',
-    title: 'Download from Releases',
+    title: 'Open the latest published release',
     description:
-      'Use GitHub Releases for packaged builds and release notes so the published download matches the documented setup state.',
+      'Start from GitHub Releases so the package, release notes, and repository documentation all describe the same published state.',
   },
   {
     number: '02',
-    title: 'Start with the base workflow',
+    title: 'Launch the app and set the basic workflow first',
     description:
-      'Configure capture mode, OCR engine, and translation engine, then trigger the overlay with hotkeys. Not every optional dependency is required on day one.',
+      'Pick a capture mode, choose an OCR engine and a translation engine, then trigger the overlay with hotkeys. You do not need every helper binary to start using the standard path.',
   },
   {
     number: '03',
-    title: 'Add advanced components only when needed',
+    title: 'Add optional helpers only for the features you want',
     description:
-      'Helper services and native components expand the feature set for local inference, Python OCR services, Graphics Hook capture, and mirror fullscreen.',
+      'Bring in Python OCR services, local model helpers, Graphics Hook agents, or mirror fullscreen support only when you need those advanced workflows.',
   },
 ]
 
 export const optionalRequirements: OptionalRequirement[] = [
   {
     name: 'uv',
-    note: 'Required when enabling Python-based OCR services, gRPC helpers, or Llama-side helper services.',
+    note: 'Add this when you want Python-based OCR services, gRPC helpers, or Llama-side helper workflows.',
   },
   {
     name: 'llama-server.exe',
-    note: 'Needed for local translation and VisionLLM OCR flows.',
+    note: 'Only needed for local translation and VisionLLM OCR workflows.',
   },
   {
     name: 'Tools/Magpie/Magpie.Core.exe',
-    note: 'Only required for the mirror fullscreen path.',
+    note: 'This is specific to the mirror fullscreen path and is not part of the basic setup.',
   },
   {
     name: 'Native hook agents',
-    note: 'Build and ship these when you want DX9, DX11, or Vulkan Graphics Hook capture.',
+    note: 'Use these for DX9, DX11, or Vulkan Graphics Hook capture when standard capture paths are not enough.',
   },
 ]
 
 export const buildTracks: BuildTrack[] = [
   {
     title: 'Main application build',
-    summary: 'Use this when building the WPF desktop application from source.',
+    summary: 'This is the shortest path for developers who want to build the WPF desktop application from source.',
     commands: ['dotnet build .\\Hotkey-Translator.sln -c Release'],
   },
   {
     title: 'Native hook components',
-    summary: 'Required for the Graphics Hook pipeline and optional x86 targets.',
+    summary: 'Use these commands only when you need the Graphics Hook pipeline or optional x86 hook targets.',
     commands: [
       'cmake -S Native -B Native/build -A x64',
       'cmake --build Native/build --config Release',
@@ -141,31 +141,31 @@ export const resourceLinks: ResourceLink[] = [
   {
     title: 'Download releases',
     href: externalLinks.releases,
-    description: 'Packaged builds and release notes.',
+    description: 'Published packages, release notes, and the current download entry point.',
   },
   {
     title: 'Read the English README',
     href: externalLinks.readmeEn,
-    description: 'Feature list, requirements, and build notes.',
+    description: 'Full feature list, requirements, and source build notes in English.',
   },
   {
     title: 'Read the Japanese README',
     href: externalLinks.readmeJa,
-    description: 'Japanese documentation in the repository.',
+    description: 'Repository documentation for Japanese readers.',
   },
   {
     title: 'Browse the source repository',
     href: externalLinks.repository,
-    description: 'Source code, issues, and project history.',
+    description: 'Source code, release history, and project context.',
   },
   {
     title: 'Report an issue',
     href: externalLinks.issues,
-    description: 'Open bugs, feedback, and follow-up questions.',
+    description: 'Bug reports, feedback, and follow-up questions.',
   },
   {
     title: 'Review the MIT license',
     href: externalLinks.license,
-    description: 'Repository-level license for this project.',
+    description: 'Repository-level MIT license for this project.',
   },
 ]

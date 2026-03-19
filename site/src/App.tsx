@@ -39,16 +39,16 @@ function App() {
           <div className="space-y-8">
             <div className="space-y-5">
               <p className="text-sm font-semibold uppercase tracking-[0.32em] text-blue-700">
-                Release-first onboarding
+                Windows OCR and translation overlay
               </p>
               <h1 className="display-type max-w-4xl text-5xl leading-[0.94] text-stone-950 sm:text-6xl lg:text-7xl">
-                Ship the app page your release process actually needs.
+                Read on-screen text without leaving the app you are using.
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-stone-700 sm:text-xl">
-                {repository.productName} is a Windows desktop application that captures
-                on-screen text with hotkeys, runs OCR and translation, and renders the
-                result as an overlay. This site keeps the download path, setup notes,
-                and documentation entry points in one static GitHub Pages deployment.
+                {repository.productName} lets you capture text with hotkeys, run OCR and
+                translation, and keep the result visible as an overlay. Start with the
+                standard desktop workflow, then add optional helpers only if you need local
+                models, Python OCR services, or advanced fullscreen capture.
               </p>
             </div>
 
@@ -79,10 +79,10 @@ function App() {
               <div className="flex items-center justify-between gap-4">
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.3em] text-stone-500">
-                    Static distribution page
+                    What the app helps you do
                   </p>
                   <h2 className="display-type mt-2 text-3xl text-stone-950">
-                    One place for downloads, setup, and source docs.
+                    Capture, OCR, translate, and read the result as an overlay.
                   </h2>
                 </div>
                 <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">
@@ -104,21 +104,21 @@ function App() {
                 />
                 <div className="grid gap-3 sm:grid-cols-3">
                   <div className="rounded-2xl bg-white/10 px-4 py-4">
-                    <p className="text-xs uppercase tracking-[0.24em] text-stone-300">Base site</p>
+                    <p className="text-xs uppercase tracking-[0.24em] text-stone-300">Basic path</p>
                     <p className="mt-2 text-sm leading-6 text-stone-100">
-                      Static React build with Pages-safe asset paths.
+                      Start with standard capture and the engines that already fit your setup.
                     </p>
                   </div>
                   <div className="rounded-2xl bg-white/10 px-4 py-4">
-                    <p className="text-xs uppercase tracking-[0.24em] text-stone-300">Setup notes</p>
+                    <p className="text-xs uppercase tracking-[0.24em] text-stone-300">Optional extras</p>
                     <p className="mt-2 text-sm leading-6 text-stone-100">
-                      Optional helper binaries are separated from the basic path.
+                      Add local models, Python OCR, or fullscreen helpers only when you need them.
                     </p>
                   </div>
                   <div className="rounded-2xl bg-white/10 px-4 py-4">
-                    <p className="text-xs uppercase tracking-[0.24em] text-stone-300">Release links</p>
+                    <p className="text-xs uppercase tracking-[0.24em] text-stone-300">Downloads</p>
                     <p className="mt-2 text-sm leading-6 text-stone-100">
-                      GitHub Releases remains the download source of truth.
+                      GitHub Releases stays the source of truth for published builds and notes.
                     </p>
                   </div>
                 </div>
@@ -131,8 +131,8 @@ function App() {
       <section className="section-shell" id="features">
         <SectionHeading
           eyebrow="Core strengths"
-          title="Built to explain the app clearly before the user downloads it."
-          description="The landing page focuses on the desktop workflow that matters to first-time visitors and avoids turning the site into a separate web application."
+          title="See what the desktop workflow is good at before you download anything."
+          description="The key points here are user outcomes: quick repeated capture, readable overlay output, flexible engine choices, and extra capture paths only when the standard flow is not enough."
         />
 
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
@@ -153,8 +153,8 @@ function App() {
       <section className="section-shell" id="install">
         <SectionHeading
           eyebrow="Install path"
-          title="Start small, then add optional components when your workflow needs them."
-          description="The documented release path should not force every user to install every helper service. The site now makes that separation explicit."
+          title="Get the base workflow running first, then expand it only if your setup needs more."
+          description="The install path should stay simple for first-time users. Optional helpers belong later, after the standard desktop flow is already working."
         />
 
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
@@ -173,8 +173,8 @@ function App() {
       <section className="section-shell" id="requirements">
         <SectionHeading
           eyebrow="Requirements and notes"
-          title="Optional dependencies are called out instead of being buried in build notes."
-          description="That keeps the release page honest: some advanced engines and fullscreen paths need extra binaries, but the core workflow does not require every extension."
+          title="Know what is needed for the basic path and what is only for advanced features."
+          description="This section separates minimum expectations from optional extras so the app does not look harder to start than it really is."
         />
 
         <div className="mt-10 grid gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
@@ -185,7 +185,7 @@ function App() {
                   Optional components
                 </p>
                 <h3 className="mt-3 text-2xl font-semibold tracking-tight text-stone-950">
-                  Add these only for the corresponding feature sets.
+                  Add these only for the feature sets that actually need them.
                 </h3>
               </div>
               <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-amber-700">
@@ -212,12 +212,13 @@ function App() {
                 Platform baseline
               </p>
               <h3 className="text-2xl font-semibold tracking-tight text-stone-950">
-                Windows 10 / 11, then feature-specific extras as needed.
+                Windows 10 / 11 first, then feature-specific extras when you are ready.
               </h3>
               <p className="text-base leading-7 text-stone-700">
                 The current desktop application targets <code>net8.0-windows10.0.22621.0</code>.
-                For source builds, the repository documentation calls out .NET 8, Visual Studio
-                2022 or MSVC Build Tools, and CMake.
+                The standard desktop path does not require every optional helper at once. For
+                source builds, the repository documentation calls out .NET 8, Visual Studio 2022
+                or MSVC Build Tools, and CMake.
               </p>
             </div>
 
@@ -227,8 +228,8 @@ function App() {
               </p>
               <p className="mt-3 text-sm leading-6 text-stone-200">
                 Mirror fullscreen integrates a Magpie-derived binary, and native or model-based
-                features carry their own redistribution constraints. The site links users to the
-                repository docs instead of hiding those legal and packaging details.
+                features carry their own redistribution constraints. The release page points back
+                to the repository docs so those packaging and legal details stay visible.
               </p>
             </div>
           </aside>
@@ -238,8 +239,8 @@ function App() {
       <section className="section-shell" id="build">
         <SectionHeading
           eyebrow="Source build"
-          title="Keep build instructions close to the release page without making the site a docs clone."
-          description="The page surfaces the two build tracks that matter most and then links back to the repository documentation for deeper setup details."
+          title="Keep source-build notes available without turning the landing page into a full developer manual."
+          description="Most visitors should start from Releases. This section stays here for developers who want the shortest route to the repository build commands."
         />
 
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
@@ -266,7 +267,7 @@ function App() {
         <SectionHeading
           eyebrow="Repository links"
           title="Downloads, docs, and issue reporting stay one click away."
-          description="This keeps the landing page focused while still routing users to the deeper repository context that matters for installation and support."
+          description="The landing page stays focused, while the repository links carry users to deeper setup notes, issue tracking, and release context when they need it."
         />
 
         <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -300,12 +301,12 @@ function App() {
               Legal and packaging
             </p>
             <h2 className="display-type text-3xl text-stone-950">
-              MIT at the repository level, separate notices where upstream components require them.
+              MIT for the repository, with separate notices where upstream components require them.
             </h2>
             <p className="text-base leading-7 text-stone-700">
               The repository now includes an MIT license. Third-party components such as the
               Magpie-derived fullscreen integration, Dear ImGui, MinHook, model files, and OCR or
-              inference runtimes remain subject to their own license and redistribution terms.
+              inference runtimes still follow their own license and redistribution terms.
             </p>
           </div>
 
