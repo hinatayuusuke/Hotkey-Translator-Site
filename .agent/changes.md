@@ -134,3 +134,34 @@
 
 ### Tests / Verification
 - Ran `npm run build` in `site/` and confirmed the site builds successfully with the new screenshot demo.
+
+**2026-03-23 14:01 (Asia/Taipei) — Simplify how-it-works gallery**
+
+### Summary
+- Replaced the interactive `How it works` switcher with a simpler three-image gallery and shorter explanatory text.
+
+### Context / Goal
+- The previous `How it works` section used click-based state switching and longer explanations.
+- The goal was to make this section easier to scan by showing Original, ROI, and Overlay as three fixed screenshots with minimal copy.
+
+### Changes
+- Removed the workflow step switching UI and related content data.
+- Rebuilt the `How it works` section as three static cards ordered Original, ROI, Overlay.
+- Shortened the section title, description, and per-image explanations.
+
+### Files Touched
+- `site/src/App.tsx` — simplified the workflow section into a fixed three-image layout.
+- `site/src/data/siteContent.ts` — removed workflow step data that is no longer used.
+- `site/src/index.css` — removed unused workflow switcher styles.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- The `How it works` section no longer depends on click interaction.
+- Visitors now see the three workflow states at once instead of switching between them.
+
+### Risk & Mitigation
+- Risk: Showing all three images at once uses more vertical space on smaller screens.
+- Mitigation: The layout stays responsive and keeps the copy short so scanning remains simple.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the site still builds successfully after simplifying the workflow section.

@@ -20,13 +20,6 @@ type BuildTrack = {
   commands: string[]
 }
 
-type WorkflowStep = {
-  id: 'original' | 'roi' | 'overlay'
-  label: string
-  title: string
-  description: string
-}
-
 type ResourceLink = {
   title: string
   href: string
@@ -80,30 +73,6 @@ export const featureHighlights: FeatureHighlight[] = [
     title: 'Use advanced capture paths only when standard capture is not enough',
     description:
       'Standard GDI, WGC, and DXGI capture cover the basic path, while Graphics Hook and mirror fullscreen stay available for harder rendering cases and experimental setups.',
-  },
-]
-
-export const workflowSteps: WorkflowStep[] = [
-  {
-    id: 'original',
-    label: '1. Original',
-    title: 'Start from the source content you are already looking at',
-    description:
-      'The app is meant to stay out of the way until you need it. Keep the game, video, or desktop app visible and trigger capture with hotkeys when text appears.',
-  },
-  {
-    id: 'roi',
-    label: '2. ROI Selection',
-    title: 'Select the text area once, then rerun the same workflow quickly',
-    description:
-      'ROI selection and presets help when the text region stays consistent, so repeated capture does not turn into repeated manual setup.',
-  },
-  {
-    id: 'overlay',
-    label: '3. Overlay Result',
-    title: 'Read the OCR and translation result directly over the source',
-    description:
-      'The final output stays on screen as an overlay, which keeps the translated text readable without forcing you to switch windows or tools.',
   },
 ]
 

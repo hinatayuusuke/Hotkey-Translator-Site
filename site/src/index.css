@@ -159,40 +159,11 @@ pre {
   opacity: 1;
 }
 
-.workflow-step {
-  width: 100%;
-  border: 1px solid rgb(28 25 23 / 0.1);
-  border-radius: 1.5rem;
-  background: rgb(255 255 255 / 0.62);
-  padding: 1.35rem 1.4rem;
-  text-align: left;
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    background-color 180ms ease;
-}
-
-.workflow-step:hover {
-  transform: translateY(-1px);
-  border-color: rgb(37 99 235 / 0.22);
-  background: rgb(255 255 255 / 0.84);
-  box-shadow: 0 18px 45px rgb(37 99 235 / 0.08);
-}
-
-.workflow-step-active {
-  border-color: rgb(37 99 235 / 0.32);
-  background: linear-gradient(180deg, rgb(239 246 255 / 0.96), rgb(255 255 255 / 0.92));
-  box-shadow: 0 20px 52px rgb(37 99 235 / 0.12);
-}
-
 @media (prefers-reduced-motion: reduce) {
   .demo-image {
     transition: none;
   }
 
-  .workflow-step,
-  .workflow-step:hover,
   .button-primary:hover,
   .button-secondary:hover,
   .nav-pill:hover {

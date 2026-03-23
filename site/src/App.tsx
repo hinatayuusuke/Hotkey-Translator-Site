@@ -12,7 +12,6 @@ import {
   optionalRequirements,
   repository,
   resourceLinks,
-  workflowSteps,
 } from './data/siteContent'
 
 const quickLinks = [
@@ -24,16 +23,38 @@ const quickLinks = [
 ]
 
 type WorkflowImageId = 'original' | 'roi' | 'overlay'
-
-const workflowImages: Record<WorkflowImageId, string> = {
-  original: originalSceneImage,
-  roi: roiSelectionImage,
-  overlay: overlayResultImage,
-}
+const workflowGallery: Array<{
+  id: WorkflowImageId
+  label: string
+  title: string
+  description: string
+  image: string
+}> = [
+  {
+    id: 'original',
+    label: 'Original',
+    title: 'See the source content first',
+    description: 'Keep the current game or app visible and capture only when text appears.',
+    image: originalSceneImage,
+  },
+  {
+    id: 'roi',
+    label: 'ROI',
+    title: 'Limit capture to the text area',
+    description: 'ROI selection helps repeat the same workflow without resetting the target area every time.',
+    image: roiSelectionImage,
+  },
+  {
+    id: 'overlay',
+    label: 'Overlay',
+    title: 'Read the result on top of the source',
+    description: 'The translated overlay stays on screen so you do not need to switch windows to read it.',
+    image: overlayResultImage,
+  },
+]
 
 function App() {
   const [heroFrame, setHeroFrame] = useState<'original' | 'overlay'>('original')
-  const [activeWorkflowStep, setActiveWorkflowStep] = useState<WorkflowImageId>('overlay')
   const [reducedMotion, setReducedMotion] = useState(false)
 
   useEffect(() => {
@@ -196,70 +217,30 @@ function App() {
       <section className="section-shell" id="workflow">
         <SectionHeading
           eyebrow="How it works"
-          title="Show the flow in three states instead of making visitors guess from a single screenshot."
-          description="The sequence matters here: the source content stays visible, ROI selection narrows the target area, and the translated overlay becomes readable without leaving the current app."
+          title="Three quick views of the workflow."
+          description="Original screen, ROI selection, and overlay result."
         />
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(18rem,0.75fr)_minmax(0,1.25fr)] lg:items-start">
-          <div className="grid gap-4">
-            {workflowSteps.map((step) => {
-              const isActive = activeWorkflowStep === step.id
-
-              return (
-                <button
-                  key={step.id}
-                  aria-pressed={isActive}
-                  className={`workflow-step ${isActive ? 'workflow-step-active' : ''}`}
-                  onClick={() => setActiveWorkflowStep(step.id)}
-                  type="button"
-                >
-                  <span className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-700">
-                    {step.label}
-                  </span>
-                  <span className="mt-3 block text-left text-2xl font-semibold tracking-tight text-stone-950">
-                    {step.title}
-                  </span>
-                  <span className="mt-3 block text-left text-base leading-7 text-stone-700">
-                    {step.description}
-                  </span>
-                </button>
-              )
-            })}
-          </div>
-
-          <div className="surface-panel px-6 py-6 sm:px-7">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-700">
-                  Current step
-                </p>
-                <h3 className="mt-2 text-2xl font-semibold tracking-tight text-stone-950">
-                  {workflowSteps.find((step) => step.id === activeWorkflowStep)?.title}
-                </h3>
+        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          {workflowGallery.map((item) => (
+            <article key={item.id} className="surface-panel px-5 py-5 sm:px-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-700">
+                {item.label}
+              </p>
+              <div className="mt-4 overflow-hidden rounded-[1.5rem] border border-stone-950/10 bg-stone-950 shadow-[0_20px_55px_rgba(15,23,42,0.18)]">
+                <img
+                  alt={item.title}
+                  className="block aspect-[9/16] w-full object-cover"
+                  loading="lazy"
+                  src={item.image}
+                />
               </div>
-              <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-blue-700">
-                Click to switch
-              </span>
-            </div>
-
-            <div className="mt-6 demo-frame mx-auto max-w-[22rem] bg-stone-950">
-              <img
-                alt={
-                  activeWorkflowStep === 'original'
-                    ? 'Original scene'
-                    : activeWorkflowStep === 'roi'
-                      ? 'ROI selection overlay'
-                      : 'Translated overlay result'
-                }
-                className="block h-full w-full object-cover"
-                src={workflowImages[activeWorkflowStep]}
-              />
-            </div>
-
-            <p className="mt-5 text-base leading-7 text-stone-700">
-              {workflowSteps.find((step) => step.id === activeWorkflowStep)?.description}
-            </p>
-          </div>
+              <h3 className="mt-4 text-2xl font-semibold tracking-tight text-stone-950">
+                {item.title}
+              </h3>
+              <p className="mt-3 text-base leading-7 text-stone-700">{item.description}</p>
+            </article>
+          ))}
         </div>
       </section>
 
