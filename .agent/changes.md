@@ -285,3 +285,64 @@
 
 ### Tests / Verification
 - Ran `npm run build` in `site/` and confirmed the site still builds successfully after the screenshot display change.
+
+**2026-03-23 14:18 (Asia/Taipei) — Remove section card frames**
+
+### Summary
+- Removed framed card styling from `How it works`, `Core strengths`, and `Repository links` and made those sections more concise.
+
+### Context / Goal
+- Those three sections still looked heavy because each item was wrapped in a bordered panel.
+- The goal was to present the same information more lightly and with shorter descriptions.
+
+### Changes
+- Reworked `How it works` into a plain three-column layout with image-only blocks and short captions.
+- Reworked `Core strengths` into a lighter two-column list separated by simple top borders.
+- Reworked `Repository links` into a simpler link list with bottom dividers instead of framed cards.
+- Shortened feature and repository-link descriptions to match the lighter layout.
+
+### Files Touched
+- `site/src/App.tsx` — removed framed card layouts from the three sections and simplified their presentation.
+- `site/src/data/siteContent.ts` — shortened feature and repository-link descriptions.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- The middle and lower sections now read more like lightweight content blocks than card grids.
+- The page looks less dense and the remaining text is quicker to scan.
+
+### Risk & Mitigation
+- Risk: Removing panels reduces separation between items.
+- Mitigation: The layout keeps spacing, labels, and divider lines so each item still scans as a distinct block.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the site still builds successfully after simplifying the section presentation.
+
+**2026-03-23 14:19 (Asia/Taipei) — Remove hero image frame**
+
+### Summary
+- Removed the outer frame around the Hero image so the screenshot sits on the page more directly.
+
+### Context / Goal
+- The Hero screenshot still appeared inside a visible framed container.
+- The goal was to remove that outer frame while keeping the image sizing and auto-switch behavior.
+
+### Changes
+- Removed the `surface-panel` wrapper from the Hero image area.
+- Added a lighter dedicated Hero image container without panel border or panel shadow styling.
+- Kept the background glow accents behind the Hero image.
+
+### Files Touched
+- `site/src/App.tsx` — removed the framed Hero wrapper and kept only the image container.
+- `site/src/index.css` — added a minimal Hero image container style without the panel frame.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- The Hero screenshot now appears without the previous outer panel frame.
+- The first view looks cleaner and puts more emphasis on the image itself.
+
+### Risk & Mitigation
+- Risk: Removing the frame reduces visual separation from the page background.
+- Mitigation: The rounded image shape and background glow still keep the Hero area visually distinct.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the site still builds successfully after removing the Hero frame.

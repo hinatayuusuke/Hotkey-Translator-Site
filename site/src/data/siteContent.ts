@@ -57,22 +57,22 @@ export const featureHighlights: FeatureHighlight[] = [
   {
     title: 'Read on-screen text without breaking your flow',
     description:
-      'Capture text from games, videos, and desktop apps, then read the OCR and translation result directly in the overlay instead of switching back and forth between tools.',
+      'Capture text from games, videos, and desktop apps, then read the result directly in the overlay.',
   },
   {
     title: 'Repeat fast with hotkeys, ROI presets, and window lock',
     description:
-      'Once the target area is set, you can rerun the same workflow quickly with hotkeys, ROI preset switching, and capture-window locking.',
+      'Once the target area is set, you can rerun the same workflow quickly with hotkeys and saved target areas.',
   },
   {
     title: 'Choose the OCR and translation stack that fits your setup',
     description:
-      'Use lightweight built-in paths first, then move to PaddleOCR, VisionLLM, DeepL, Gemini, Google Web, or Llama.cpp when your workflow needs different speed, quality, or local inference options.',
+      'Start with lightweight paths, then move to other OCR or translation engines when you need different speed, quality, or local inference.',
   },
   {
     title: 'Use advanced capture paths only when standard capture is not enough',
     description:
-      'Standard GDI, WGC, and DXGI capture cover the basic path, while Graphics Hook and mirror fullscreen stay available for harder rendering cases and experimental setups.',
+      'Standard capture covers the basic path, while Graphics Hook and mirror fullscreen stay available for harder cases.',
   },
 ]
 
@@ -141,31 +141,31 @@ export const resourceLinks: ResourceLink[] = [
   {
     title: 'Download releases',
     href: externalLinks.releases,
-    description: 'Published packages, release notes, and the current download entry point.',
+    description: 'Published packages and release notes.',
   },
   {
     title: 'Read the English README',
     href: externalLinks.readmeEn,
-    description: 'Full feature list, requirements, and source build notes in English.',
+    description: 'Feature list and notes in English.',
   },
   {
     title: 'Read the Japanese README',
     href: externalLinks.readmeJa,
-    description: 'Repository documentation for Japanese readers.',
+    description: 'Repository documentation in Japanese.',
   },
   {
     title: 'Browse the source repository',
     href: externalLinks.repository,
-    description: 'Source code, release history, and project context.',
+    description: 'Source code and project context.',
   },
   {
     title: 'Report an issue',
     href: externalLinks.issues,
-    description: 'Bug reports, feedback, and follow-up questions.',
+    description: 'Bug reports and feedback.',
   },
   {
     title: 'Review the MIT license',
     href: externalLinks.license,
-    description: 'Repository-level MIT license for this project.',
+    description: 'Repository-level MIT license.',
   },
 ]

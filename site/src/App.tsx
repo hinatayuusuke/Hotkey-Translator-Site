@@ -21,21 +21,21 @@ const workflowGallery: Array<{
     id: 'original',
     label: 'Original',
     title: 'See the source content first',
-    description: 'Keep the current game or app visible and capture only when text appears.',
+    description: 'Keep the current game or app visible.',
     image: originalSceneImage,
   },
   {
     id: 'roi',
     label: 'ROI',
     title: 'Limit capture to the text area',
-    description: 'ROI selection helps repeat the same workflow without resetting the target area every time.',
+    description: 'Select only the text area you want to read.',
     image: roiSelectionImage,
   },
   {
     id: 'overlay',
     label: 'Overlay',
     title: 'Read the result on top of the source',
-    description: 'The translated overlay stays on screen so you do not need to switch windows to read it.',
+    description: 'Read the translated result without switching windows.',
     image: overlayResultImage,
   },
 ]
@@ -78,22 +78,20 @@ function App() {
             </div>
           </div>
 
-          <div className="surface-panel relative overflow-hidden px-6 py-6 sm:px-8 sm:py-8">
-            <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-blue-300/30 blur-3xl" />
-            <div className="absolute bottom-0 left-0 h-32 w-32 rounded-full bg-amber-300/40 blur-3xl" />
-            <div className="relative">
-              <div className="demo-frame mx-auto max-w-[22rem] lg:max-w-[24rem]">
-                <img
-                  key={heroFrame}
-                  alt={
-                    heroFrame === 'original'
-                      ? 'Original scene before overlay translation'
-                      : 'Translated overlay displayed over the original scene'
-                  }
-                  className="demo-image-single"
-                  src={heroFrame === 'original' ? originalSceneImage : overlayResultImage}
-                />
-              </div>
+          <div className="relative">
+            <div className="absolute right-8 top-0 h-32 w-32 rounded-full bg-blue-300/30 blur-3xl" />
+            <div className="absolute bottom-0 left-8 h-32 w-32 rounded-full bg-amber-300/40 blur-3xl" />
+            <div className="hero-demo-frame mx-auto max-w-[22rem] lg:max-w-[24rem]">
+              <img
+                key={heroFrame}
+                alt={
+                  heroFrame === 'original'
+                    ? 'Original scene before overlay translation'
+                    : 'Translated overlay displayed over the original scene'
+                }
+                className="demo-image-single"
+                src={heroFrame === 'original' ? originalSceneImage : overlayResultImage}
+              />
             </div>
           </div>
         </div>
@@ -103,27 +101,27 @@ function App() {
         <SectionHeading
           eyebrow="How it works"
           title="Three quick views of the workflow."
-          description="Original screen, ROI selection, and overlay result."
+          description="Original, ROI, and overlay."
         />
 
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
           {workflowGallery.map((item) => (
-            <article key={item.id} className="surface-panel px-5 py-5 sm:px-6">
+            <article key={item.id} className="space-y-4">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-700">
                 {item.label}
               </p>
-              <div className="demo-frame mt-4 shadow-[0_20px_55px_rgba(15,23,42,0.18)]">
+              <div className="overflow-hidden rounded-[1.5rem] bg-stone-950">
                 <img
                   alt={item.title}
-                  className="demo-image-static"
+                  className="block aspect-[846/1237] w-full object-contain"
                   loading="lazy"
                   src={item.image}
                 />
               </div>
-              <h3 className="mt-4 text-2xl font-semibold tracking-tight text-stone-950">
+              <h3 className="text-2xl font-semibold tracking-tight text-stone-950">
                 {item.title}
               </h3>
-              <p className="mt-3 text-base leading-7 text-stone-700">{item.description}</p>
+              <p className="text-base leading-7 text-stone-700">{item.description}</p>
             </article>
           ))}
         </div>
@@ -138,8 +136,8 @@ function App() {
 
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
           {featureHighlights.map((feature) => (
-            <article key={feature.title} className="surface-panel px-6 py-6 sm:px-7">
-              <p className="text-sm font-semibold uppercase tracking-[0.26em] text-blue-700">
+            <article key={feature.title} className="border-t border-stone-950/10 pt-5">
+              <p className="text-sm font-semibold uppercase tracking-[0.26em] text-blue-700/90">
                 Feature
               </p>
               <h3 className="mt-3 text-2xl font-semibold tracking-tight text-stone-950">
@@ -158,11 +156,11 @@ function App() {
           description="The landing page stays focused, while the repository links carry users to deeper setup notes, issue tracking, and release context when they need it."
         />
 
-        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-10 grid gap-2 md:grid-cols-2 xl:grid-cols-3">
           {resourceLinks.map((link) => (
             <a
               key={link.title}
-              className="surface-panel group block px-6 py-6 transition-transform duration-200 hover:-translate-y-1"
+              className="group block border-b border-stone-950/10 py-4 transition-colors duration-200"
               href={link.href}
               target="_blank"
               rel="noreferrer"
@@ -170,11 +168,11 @@ function App() {
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-stone-500">
                 External
               </p>
-              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-stone-950">
+              <h3 className="mt-2 text-2xl font-semibold tracking-tight text-stone-950 transition-colors duration-200 group-hover:text-blue-700">
                 {link.title}
               </h3>
-              <p className="mt-3 text-base leading-7 text-stone-700">{link.description}</p>
-              <p className="mt-6 text-sm font-semibold text-blue-700 transition-colors duration-200 group-hover:text-blue-500">
+              <p className="mt-2 text-base leading-7 text-stone-700">{link.description}</p>
+              <p className="mt-3 text-sm font-semibold text-blue-700 transition-colors duration-200 group-hover:text-blue-500">
                 Open link
               </p>
             </a>

@@ -145,6 +145,13 @@ pre {
   box-shadow: 0 28px 70px rgb(15 23 42 / 0.32);
 }
 
+.hero-demo-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  aspect-ratio: 846 / 1237;
+}
+
 .demo-image-single {
   display: block;
   height: 100%;
