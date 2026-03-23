@@ -1,4 +1,7 @@
-import heroImage from './assets/hero.png'
+import { useEffect, useState } from 'react'
+import originalSceneImage from './assets/original-scene.png'
+import overlayResultImage from './assets/overlay-result.png'
+import roiSelectionImage from './assets/roi-selection.png'
 import { SectionHeading } from './components/SectionHeading'
 import {
   buildTracks,
@@ -9,16 +12,61 @@ import {
   optionalRequirements,
   repository,
   resourceLinks,
+  workflowSteps,
 } from './data/siteContent'
 
 const quickLinks = [
+  { label: 'How it works', href: '#workflow' },
   { label: 'Features', href: '#features' },
   { label: 'Install', href: '#install' },
   { label: 'Requirements', href: '#requirements' },
   { label: 'Build', href: '#build' },
 ]
 
+type WorkflowImageId = 'original' | 'roi' | 'overlay'
+
+const workflowImages: Record<WorkflowImageId, string> = {
+  original: originalSceneImage,
+  roi: roiSelectionImage,
+  overlay: overlayResultImage,
+}
+
 function App() {
+  const [heroFrame, setHeroFrame] = useState<'original' | 'overlay'>('original')
+  const [activeWorkflowStep, setActiveWorkflowStep] = useState<WorkflowImageId>('overlay')
+  const [reducedMotion, setReducedMotion] = useState(false)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const updateMotionPreference = () => {
+      setReducedMotion(mediaQuery.matches)
+    }
+
+    updateMotionPreference()
+    mediaQuery.addEventListener('change', updateMotionPreference)
+
+    return () => {
+      mediaQuery.removeEventListener('change', updateMotionPreference)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (reducedMotion) {
+      setHeroFrame('overlay')
+      return
+    }
+
+    const intervalId = window.setInterval(() => {
+      setHeroFrame((currentFrame) =>
+        currentFrame === 'original' ? 'overlay' : 'original',
+      )
+    }, 1350)
+
+    return () => {
+      window.clearInterval(intervalId)
+    }
+  }, [reducedMotion])
+
   return (
     <main className="relative overflow-hidden pb-16">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[32rem] bg-[radial-gradient(circle_at_top_left,_rgba(245,158,11,0.22),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(37,99,235,0.18),_transparent_32%)]" />
@@ -97,11 +145,28 @@ function App() {
                   <span className="rounded-full bg-white/10 px-3 py-1">Overlay</span>
                   <span className="rounded-full bg-white/10 px-3 py-1">Windows</span>
                 </div>
-                <img
-                  alt="Hotkey Translator project mark"
-                  className="mx-auto w-full max-w-[17rem] drop-shadow-[0_18px_45px_rgba(168,85,247,0.35)]"
-                  src={heroImage}
-                />
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between gap-4 text-xs font-semibold uppercase tracking-[0.24em] text-stone-300">
+                    <span>Live preview</span>
+                    <span>{heroFrame === 'original' ? 'Original scene' : 'Overlay result'}</span>
+                  </div>
+                  <div className="demo-frame mx-auto max-w-[18rem]">
+                    <img
+                      alt="Original scene before overlay translation"
+                      className={`demo-image ${heroFrame === 'original' ? 'demo-image-active' : ''}`}
+                      src={originalSceneImage}
+                    />
+                    <img
+                      alt="Translated overlay displayed over the original scene"
+                      className={`demo-image ${heroFrame === 'overlay' ? 'demo-image-active' : ''}`}
+                      src={overlayResultImage}
+                    />
+                  </div>
+                  <p className="text-sm leading-6 text-stone-300">
+                    The hero preview alternates between the source scene and the translated
+                    overlay so visitors can understand the result in a glance.
+                  </p>
+                </div>
                 <div className="grid gap-3 sm:grid-cols-3">
                   <div className="rounded-2xl bg-white/10 px-4 py-4">
                     <p className="text-xs uppercase tracking-[0.24em] text-stone-300">Basic path</p>
@@ -124,6 +189,76 @@ function App() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-shell" id="workflow">
+        <SectionHeading
+          eyebrow="How it works"
+          title="Show the flow in three states instead of making visitors guess from a single screenshot."
+          description="The sequence matters here: the source content stays visible, ROI selection narrows the target area, and the translated overlay becomes readable without leaving the current app."
+        />
+
+        <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(18rem,0.75fr)_minmax(0,1.25fr)] lg:items-start">
+          <div className="grid gap-4">
+            {workflowSteps.map((step) => {
+              const isActive = activeWorkflowStep === step.id
+
+              return (
+                <button
+                  key={step.id}
+                  aria-pressed={isActive}
+                  className={`workflow-step ${isActive ? 'workflow-step-active' : ''}`}
+                  onClick={() => setActiveWorkflowStep(step.id)}
+                  type="button"
+                >
+                  <span className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-700">
+                    {step.label}
+                  </span>
+                  <span className="mt-3 block text-left text-2xl font-semibold tracking-tight text-stone-950">
+                    {step.title}
+                  </span>
+                  <span className="mt-3 block text-left text-base leading-7 text-stone-700">
+                    {step.description}
+                  </span>
+                </button>
+              )
+            })}
+          </div>
+
+          <div className="surface-panel px-6 py-6 sm:px-7">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-700">
+                  Current step
+                </p>
+                <h3 className="mt-2 text-2xl font-semibold tracking-tight text-stone-950">
+                  {workflowSteps.find((step) => step.id === activeWorkflowStep)?.title}
+                </h3>
+              </div>
+              <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-blue-700">
+                Click to switch
+              </span>
+            </div>
+
+            <div className="mt-6 demo-frame mx-auto max-w-[22rem] bg-stone-950">
+              <img
+                alt={
+                  activeWorkflowStep === 'original'
+                    ? 'Original scene'
+                    : activeWorkflowStep === 'roi'
+                      ? 'ROI selection overlay'
+                      : 'Translated overlay result'
+                }
+                className="block h-full w-full object-cover"
+                src={workflowImages[activeWorkflowStep]}
+              />
+            </div>
+
+            <p className="mt-5 text-base leading-7 text-stone-700">
+              {workflowSteps.find((step) => step.id === activeWorkflowStep)?.description}
+            </p>
           </div>
         </div>
       </section>

@@ -98,3 +98,39 @@
 
 ### Tests / Verification
 - Ran `npm run build` in `site/` and confirmed the site still builds successfully after the text update.
+
+**2026-03-23 13:37 (Asia/Taipei) — Workflow screenshot demo**
+
+### Summary
+- Replaced the abstract hero image with real app screenshots and added a workflow demo that shows original, ROI selection, and overlay result states.
+
+### Context / Goal
+- The site had real screenshots available in `site/src/assets`, but the page still relied on an abstract placeholder image.
+- The goal was to make the app behavior easier to understand by showing the source scene, ROI selection, and translated overlay directly in the landing page.
+
+### Changes
+- Renamed the newly added screenshot assets to ASCII filenames for easier use in code.
+- Updated the hero demo to alternate automatically between the original scene and the overlay result.
+- Added a new `How it works` section with manual step switching for Original, ROI Selection, and Overlay Result states.
+- Added workflow copy and styles for the new interactive screenshot presentation.
+
+### Files Touched
+- `site/src/assets/original-scene.png` — renamed and added the source-scene screenshot used in the hero and workflow demo.
+- `site/src/assets/overlay-result.png` — renamed and added the translated overlay screenshot used in the hero and workflow demo.
+- `site/src/assets/roi-selection.png` — renamed and added the ROI-selection screenshot used in the workflow demo.
+- `site/src/App.tsx` — implemented the hero auto-toggle and the new workflow step section.
+- `site/src/data/siteContent.ts` — added workflow step content for the manual screenshot switcher.
+- `site/src/index.css` — added styles for the demo frame, crossfade images, workflow step buttons, and reduced-motion behavior.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- The landing page now shows the app result directly instead of an abstract placeholder image.
+- Visitors can see the difference between the original scene and the translated overlay automatically in the hero area.
+- Visitors can manually inspect the three-step workflow in a dedicated section.
+
+### Risk & Mitigation
+- Risk: The screenshot PNG files are relatively large and increase page weight.
+- Mitigation: The current implementation uses only three focused screenshots; future optimization can convert them to lighter formats such as WebP without changing the page structure.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the site builds successfully with the new screenshot demo.
