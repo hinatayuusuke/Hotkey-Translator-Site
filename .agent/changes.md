@@ -428,3 +428,55 @@
 
 ### Tests / Verification
 - Ran `npm run build` in `site/` and confirmed the site still builds successfully after styling the Hero title.
+
+**2026-03-23 14:46 (Asia/Taipei) — Add supported OS label**
+
+### Summary
+- Added a supported-OS label next to the download link in the Hero area.
+
+### Context / Goal
+- The Hero CTA area needed a quick compatibility cue next to the download link.
+- The goal was to show the supported Windows versions without adding another large section.
+
+### Changes
+- Added a compact `Windows 10 / 11` label beside the Hero download button.
+
+### Files Touched
+- `site/src/App.tsx` — added the supported-OS label next to the Hero download CTA.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- Visitors now see the supported OS immediately next to the download action.
+
+### Risk & Mitigation
+- Risk: The CTA row could feel busier on narrow screens.
+- Mitigation: The layout already wraps and the OS label uses a compact text treatment.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the site still builds successfully after adding the OS label.
+
+**2026-03-23 14:47 (Asia/Taipei) — Add Windows icon to OS label**
+
+### Summary
+- Added a Windows icon next to the `Windows 10 / 11` label in the Hero CTA area.
+
+### Context / Goal
+- The supported-OS label was already present, and the next step was to make it easier to scan visually.
+- The goal was to add a lightweight Windows icon without introducing extra assets or files.
+
+### Changes
+- Added an inline SVG Windows logo before the `Windows 10 / 11` text in the Hero area.
+
+### Files Touched
+- `site/src/App.tsx` — added the inline Windows icon to the Hero OS label.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- The Hero compatibility label is now easier to recognize at a glance.
+
+### Risk & Mitigation
+- Risk: An inline icon can feel visually noisy if oversized.
+- Mitigation: The icon is kept small and aligned to the existing text treatment.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the site still builds successfully after adding the Windows icon.

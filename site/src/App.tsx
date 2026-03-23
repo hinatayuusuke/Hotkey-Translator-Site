@@ -76,10 +76,21 @@ function App() {
               workflow, then add optional helpers only if you need local models, Python OCR
               services, or advanced fullscreen capture.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap items-center gap-4">
               <a className="button-primary" href={externalLinks.releases} target="_blank" rel="noreferrer">
                 Download latest release
               </a>
+              <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-stone-500">
+                <svg
+                  aria-hidden="true"
+                  className="h-4 w-4 text-blue-700"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M2.5 3.75 11 2.5v8H2.5zm9.5-1.34 9.5-1.4v10.74H12zm0 10.83h9.5V24l-9.5-1.33zm-1 9.12L2.5 20.98V13.24H11z" />
+                </svg>
+                Windows 10 / 11
+              </span>
             </div>
           </div>
 
