@@ -165,3 +165,33 @@
 
 ### Tests / Verification
 - Ran `npm run build` in `site/` and confirmed the site still builds successfully after simplifying the workflow section.
+
+**2026-03-23 14:05 (Asia/Taipei) — Hero image auto-switch fix**
+
+### Summary
+- Reworked the Hero preview so it switches directly between `original-scene.png` and `overlay-result.png` with a simpler image-swap implementation.
+
+### Context / Goal
+- The Hero preview was intended to alternate between the original scene and the overlay result, but the previous stacked-image approach did not present the change reliably.
+- The goal was to make the Hero auto-switch explicit and dependable.
+
+### Changes
+- Removed the reduced-motion gate from the Hero switching logic so the preview always alternates.
+- Replaced the dual layered image setup with a single image element whose `src` switches on an interval.
+- Simplified the related CSS and kept a short fade animation on each frame swap.
+
+### Files Touched
+- `site/src/App.tsx` — simplified the Hero auto-switch logic to swap the image source directly.
+- `site/src/index.css` — replaced the layered-image styles with a single-image animation style.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- The Hero preview now alternates directly between the original screenshot and the overlay screenshot on a timer.
+- The auto-switch no longer stops because of reduced-motion preference handling in this section.
+
+### Risk & Mitigation
+- Risk: Always running the Hero animation may be less friendly for users who prefer reduced motion.
+- Mitigation: The motion is limited to a simple image swap with a short fade, and other hover transforms still remain motion-reduced.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the site still builds successfully after the Hero auto-switch change.

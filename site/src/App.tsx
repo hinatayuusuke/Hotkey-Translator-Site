@@ -55,28 +55,8 @@ const workflowGallery: Array<{
 
 function App() {
   const [heroFrame, setHeroFrame] = useState<'original' | 'overlay'>('original')
-  const [reducedMotion, setReducedMotion] = useState(false)
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const updateMotionPreference = () => {
-      setReducedMotion(mediaQuery.matches)
-    }
-
-    updateMotionPreference()
-    mediaQuery.addEventListener('change', updateMotionPreference)
-
-    return () => {
-      mediaQuery.removeEventListener('change', updateMotionPreference)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (reducedMotion) {
-      setHeroFrame('overlay')
-      return
-    }
-
     const intervalId = window.setInterval(() => {
       setHeroFrame((currentFrame) =>
         currentFrame === 'original' ? 'overlay' : 'original',
@@ -86,7 +66,7 @@ function App() {
     return () => {
       window.clearInterval(intervalId)
     }
-  }, [reducedMotion])
+  }, [])
 
   return (
     <main className="relative overflow-hidden pb-16">
@@ -173,14 +153,14 @@ function App() {
                   </div>
                   <div className="demo-frame mx-auto max-w-[18rem]">
                     <img
-                      alt="Original scene before overlay translation"
-                      className={`demo-image ${heroFrame === 'original' ? 'demo-image-active' : ''}`}
-                      src={originalSceneImage}
-                    />
-                    <img
-                      alt="Translated overlay displayed over the original scene"
-                      className={`demo-image ${heroFrame === 'overlay' ? 'demo-image-active' : ''}`}
-                      src={overlayResultImage}
+                      key={heroFrame}
+                      alt={
+                        heroFrame === 'original'
+                          ? 'Original scene before overlay translation'
+                          : 'Translated overlay displayed over the original scene'
+                      }
+                      className="demo-image-single"
+                      src={heroFrame === 'original' ? originalSceneImage : overlayResultImage}
                     />
                   </div>
                   <p className="text-sm leading-6 text-stone-300">

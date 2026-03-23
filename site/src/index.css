@@ -145,29 +145,33 @@ pre {
   box-shadow: 0 28px 70px rgb(15 23 42 / 0.32);
 }
 
-.demo-image {
-  position: absolute;
-  inset: 0;
+.demo-image-single {
+  display: block;
   height: 100%;
   width: 100%;
   object-fit: cover;
-  opacity: 0;
-  transition: opacity 280ms ease;
+  animation: hero-image-fade 280ms ease;
 }
 
-.demo-image-active {
-  opacity: 1;
+@keyframes hero-image-fade {
+  from {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .demo-image {
-    transition: none;
-  }
-
   .button-primary:hover,
   .button-secondary:hover,
   .nav-pill:hover {
     transform: none;
+  }
+
+  .demo-image-single {
+    animation: none;
   }
 }
 
