@@ -4,11 +4,8 @@ import overlayResultImage from './assets/overlay-result.png'
 import roiSelectionImage from './assets/roi-selection.png'
 import { SectionHeading } from './components/SectionHeading'
 import {
-  buildTracks,
   externalLinks,
   featureHighlights,
-  installSteps,
-  optionalRequirements,
   resourceLinks,
 } from './data/siteContent'
 
@@ -149,119 +146,6 @@ function App() {
                 {feature.title}
               </h3>
               <p className="mt-3 text-base leading-7 text-stone-700">{feature.description}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section-shell" id="install">
-        <SectionHeading
-          eyebrow="Install path"
-          title="Get the base workflow running first, then expand it only if your setup needs more."
-          description="The install path should stay simple for first-time users. Optional helpers belong later, after the standard desktop flow is already working."
-        />
-
-        <div className="mt-10 grid gap-5 lg:grid-cols-3">
-          {installSteps.map((step) => (
-            <article key={step.number} className="surface-panel px-6 py-6">
-              <p className="display-type text-4xl text-amber-600">{step.number}</p>
-              <h3 className="mt-4 text-2xl font-semibold tracking-tight text-stone-950">
-                {step.title}
-              </h3>
-              <p className="mt-3 text-base leading-7 text-stone-700">{step.description}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section-shell" id="requirements">
-        <SectionHeading
-          eyebrow="Requirements and notes"
-          title="Know what is needed for the basic path and what is only for advanced features."
-          description="This section separates minimum expectations from optional extras so the app does not look harder to start than it really is."
-        />
-
-        <div className="mt-10 grid gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-          <article className="surface-panel px-6 py-6 sm:px-7">
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.26em] text-blue-700">
-                  Optional components
-                </p>
-                <h3 className="mt-3 text-2xl font-semibold tracking-tight text-stone-950">
-                  Add these only for the feature sets that actually need them.
-                </h3>
-              </div>
-              <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-amber-700">
-                Advanced only
-              </span>
-            </div>
-
-            <div className="mt-6 grid gap-4">
-              {optionalRequirements.map((requirement) => (
-                <div
-                  key={requirement.name}
-                  className="rounded-[1.5rem] border border-stone-950/10 bg-stone-50 px-5 py-5"
-                >
-                  <h4 className="text-lg font-semibold text-stone-950">{requirement.name}</h4>
-                  <p className="mt-2 text-sm leading-6 text-stone-700">{requirement.note}</p>
-                </div>
-              ))}
-            </div>
-          </article>
-
-          <aside className="surface-panel flex flex-col justify-between gap-8 px-6 py-6 sm:px-7">
-            <div className="space-y-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.26em] text-blue-700">
-                Platform baseline
-              </p>
-              <h3 className="text-2xl font-semibold tracking-tight text-stone-950">
-                Windows 10 / 11 first, then feature-specific extras when you are ready.
-              </h3>
-              <p className="text-base leading-7 text-stone-700">
-                The current desktop application targets <code>net8.0-windows10.0.22621.0</code>.
-                The standard desktop path does not require every optional helper at once. For
-                source builds, the repository documentation calls out .NET 8, Visual Studio 2022
-                or MSVC Build Tools, and CMake.
-              </p>
-            </div>
-
-            <div className="rounded-[1.75rem] bg-stone-950 px-5 py-5 text-stone-100 shadow-[0_24px_60px_rgba(28,25,23,0.18)]">
-              <p className="text-sm font-semibold uppercase tracking-[0.26em] text-stone-300">
-                Distribution note
-              </p>
-              <p className="mt-3 text-sm leading-6 text-stone-200">
-                Mirror fullscreen integrates a Magpie-derived binary, and native or model-based
-                features carry their own redistribution constraints. The release page points back
-                to the repository docs so those packaging and legal details stay visible.
-              </p>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section className="section-shell" id="build">
-        <SectionHeading
-          eyebrow="Source build"
-          title="Keep source-build notes available without turning the landing page into a full developer manual."
-          description="Most visitors should start from Releases. This section stays here for developers who want the shortest route to the repository build commands."
-        />
-
-        <div className="mt-10 grid gap-5 lg:grid-cols-2">
-          {buildTracks.map((track) => (
-            <article key={track.title} className="surface-panel px-6 py-6 sm:px-7">
-              <p className="text-sm font-semibold uppercase tracking-[0.26em] text-blue-700">
-                Build track
-              </p>
-              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-stone-950">
-                {track.title}
-              </h3>
-              <p className="mt-3 text-base leading-7 text-stone-700">{track.summary}</p>
-              <div className="mt-5 rounded-[1.5rem] bg-stone-950 px-5 py-5 text-sm text-stone-100">
-                <pre className="overflow-x-auto whitespace-pre-wrap leading-7">
-                  {track.commands.join('\n')}
-                </pre>
-              </div>
             </article>
           ))}
         </div>

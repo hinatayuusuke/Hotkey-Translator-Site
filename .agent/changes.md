@@ -225,3 +225,33 @@
 
 ### Tests / Verification
 - Ran `npm run build` in `site/` and confirmed the site still builds successfully after simplifying the Hero section.
+
+**2026-03-23 14:11 (Asia/Taipei) — Remove middle detail sections**
+
+### Summary
+- Removed the `Install path`, `Requirements and notes`, and `Source build` sections from the page.
+
+### Context / Goal
+- The page still contained detailed onboarding and build sections that were no longer wanted in the current site scope.
+- The goal was to simplify the page by removing those middle sections entirely.
+
+### Changes
+- Deleted the `Install path` section and its cards.
+- Deleted the `Requirements and notes` section and its optional-component details.
+- Deleted the `Source build` section and its command blocks.
+- Cleaned up now-unused imports in `App.tsx`.
+
+### Files Touched
+- `site/src/App.tsx` — removed the `Install path`, `Requirements and notes`, and `Source build` sections and cleaned up unused imports.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- The page is shorter and no longer includes installation, requirements, or source-build details.
+- Visitors now move from the Hero and workflow overview directly into features and repository links.
+
+### Risk & Mitigation
+- Risk: Users looking for setup details now need to rely more on repository links.
+- Mitigation: The repository links section remains available as the path to deeper documentation and releases.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the site still builds successfully after removing the sections.
