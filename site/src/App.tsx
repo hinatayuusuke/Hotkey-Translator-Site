@@ -149,7 +149,7 @@ function App() {
         </div>
       </section>
 
-      <section className="section-shell pb-0" id="links">
+      <section className="section-shell pb-0 pt-8 sm:pt-10" id="links">
         <SectionHeading
           eyebrow="Repository links"
           title="Downloads, docs, and issue reporting stay one click away."

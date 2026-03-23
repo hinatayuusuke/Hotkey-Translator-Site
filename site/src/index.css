@@ -63,16 +63,12 @@ pre {
 }
 
 .eyebrow {
-  width: fit-content;
-  border-radius: 999px;
-  border: 1px solid rgb(37 99 235 / 0.14);
-  background: rgb(239 246 255 / 0.88);
-  padding: 0.5rem 0.85rem;
-  font-size: 0.72rem;
+  margin: 0;
+  font-size: 0.74rem;
   font-weight: 700;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: #1d4ed8;
+  color: rgb(29 78 216 / 0.86);
 }
 
 .nav-pill {

@@ -346,3 +346,31 @@
 
 ### Tests / Verification
 - Ran `npm run build` in `site/` and confirmed the site still builds successfully after removing the Hero frame.
+
+**2026-03-23 14:25 (Asia/Taipei) — Soften section eyebrow labels**
+
+### Summary
+- Removed the pill-style framing from section eyebrow labels such as `How it works` and switched them to a simpler text treatment.
+
+### Context / Goal
+- The small section labels above titles still used rounded framed styling that felt visually heavy.
+- The goal was to make those labels look lighter and more natural.
+
+### Changes
+- Removed the eyebrow background, border, padding, and pill shape.
+- Kept the uppercase blue label style, but reduced it to a plain text treatment.
+
+### Files Touched
+- `site/src/index.css` — simplified the `.eyebrow` styling used by section headings.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- Section labels now appear as simple small headings instead of framed pills.
+- `How it works`, `Core strengths`, and `Repository links` should look cleaner and less decorative.
+
+### Risk & Mitigation
+- Risk: The labels may feel less visually separated from the main title.
+- Mitigation: The uppercase styling, spacing, and color remain, so the hierarchy is still readable without the frame.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the site still builds successfully after adjusting the eyebrow labels.
