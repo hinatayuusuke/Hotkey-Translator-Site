@@ -62,8 +62,13 @@ function App() {
       <section className="section-shell flex min-h-screen flex-col justify-center gap-12 pt-10 lg:pt-16">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(22rem,0.85fr)] lg:items-center">
           <div className="space-y-6">
-            <h1 className="display-type max-w-4xl text-5xl leading-[0.94] text-stone-950 sm:text-6xl lg:text-7xl">
-              Read on-screen text without leaving the app you are using.
+            <h1 className="display-type max-w-4xl text-stone-950">
+              <span className="block bg-gradient-to-r from-blue-700 via-cyan-600 to-blue-500 bg-clip-text text-6xl leading-[0.9] text-transparent drop-shadow-[0_10px_22px_rgba(37,99,235,0.18)] sm:text-7xl lg:text-8xl">
+                Hotkey Translator
+              </span>
+              <span className="mt-4 block text-4xl leading-[0.98] sm:text-5xl lg:text-6xl">
+                Read on-screen text without leaving the app you are using.
+              </span>
             </h1>
             <p className="max-w-2xl text-lg leading-8 text-stone-700 sm:text-xl">
               Hotkey Translator lets you capture text with hotkeys, run OCR and translation,

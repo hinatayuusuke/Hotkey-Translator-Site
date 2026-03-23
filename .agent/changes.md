@@ -374,3 +374,57 @@
 
 ### Tests / Verification
 - Ran `npm run build` in `site/` and confirmed the site still builds successfully after adjusting the eyebrow labels.
+
+**2026-03-23 14:30 (Asia/Taipei) — Emphasize app name in hero title**
+
+### Summary
+- Made `Hotkey Translator` stand out prominently in the first-view title.
+
+### Context / Goal
+- The first view needed the app name to be visually prominent.
+- The goal was to highlight the app name in the Hero title without changing the rest of the page structure.
+
+### Changes
+- Split the Hero heading into a prominent app-name line and a secondary descriptive line.
+- Styled `Hotkey Translator` more prominently than the supporting headline text.
+
+### Files Touched
+- `site/src/App.tsx` — updated the Hero heading structure and emphasis.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- The app name is now the most visually prominent text in the first view.
+
+### Risk & Mitigation
+- Risk: A larger app-name line could make the Hero feel taller on smaller screens.
+- Mitigation: The supporting line remains shorter and the responsive text sizing keeps the layout controlled.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the site still builds successfully after emphasizing the app name.
+
+**2026-03-23 14:31 (Asia/Taipei) — Add hero title styling**
+
+### Summary
+- Added more visual styling to the `Hotkey Translator` app-name line in the Hero title.
+
+### Context / Goal
+- The app name was already more prominent, but still looked too plain.
+- The goal was to make the title line feel more intentional without changing the surrounding layout.
+
+### Changes
+- Applied a blue-to-cyan gradient text treatment to the `Hotkey Translator` line.
+- Added a subtle drop shadow so the app name stands out more from the background.
+
+### Files Touched
+- `site/src/App.tsx` — enhanced the visual styling of the Hero app-name line.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- The app name is now more visually distinctive in the first view.
+
+### Risk & Mitigation
+- Risk: Decorative styling can reduce readability if pushed too far.
+- Mitigation: The styling remains limited to a simple gradient and soft shadow on the app-name line only.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the site still builds successfully after styling the Hero title.
