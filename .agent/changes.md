@@ -195,3 +195,33 @@
 
 ### Tests / Verification
 - Ran `npm run build` in `site/` and confirmed the site still builds successfully after the Hero auto-switch change.
+
+**2026-03-23 14:09 (Asia/Taipei) — Minimal hero cleanup**
+
+### Summary
+- Reduced the first view so the left side only keeps the requested heading, body text, and download link, while the right side keeps only the Hero image.
+
+### Context / Goal
+- The Hero area still contained extra labels, navigation, helper cards, and a repository button.
+- The goal was to make the first view much simpler and keep attention on the core description plus the animated Hero image.
+
+### Changes
+- Removed the Hero eyebrow label and top quick-link navigation.
+- Removed the repository button and all extra Hero-side fact cards.
+- Removed all explanatory text and labels from the right Hero panel, leaving only the switching image.
+- Kept the requested heading/body copy and the download link on the left.
+
+### Files Touched
+- `site/src/App.tsx` — simplified the Hero section to the requested minimal layout.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- The first view now shows only the core message, a download CTA, and the auto-switching Hero image.
+- Secondary explanation and helper UI no longer compete with the main first impression.
+
+### Risk & Mitigation
+- Risk: Removing top navigation from the Hero makes section jumps less immediate from the first screen.
+- Mitigation: The rest of the page structure remains unchanged and can still be reached by normal scrolling.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the site still builds successfully after simplifying the Hero section.
