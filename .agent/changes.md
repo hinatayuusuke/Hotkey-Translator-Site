@@ -255,3 +255,33 @@
 
 ### Tests / Verification
 - Ran `npm run build` in `site/` and confirmed the site still builds successfully after removing the sections.
+
+**2026-03-23 14:14 (Asia/Taipei) — Fix screenshot cropping**
+
+### Summary
+- Adjusted the screenshot frames so the full images are visible without left/right cropping.
+
+### Context / Goal
+- The current Hero and workflow screenshots were clipping on the left and right edges.
+- The goal was to keep the screenshots fully visible instead of preserving a narrower decorative crop.
+
+### Changes
+- Changed the shared screenshot frame to use the actual screenshot aspect ratio instead of a narrower fixed ratio.
+- Switched screenshot rendering from `object-fit: cover` to `object-fit: contain`.
+- Slightly widened the Hero screenshot area so the main preview can breathe without clipping.
+
+### Files Touched
+- `site/src/App.tsx` — widened the Hero image area and reused the shared screenshot frame for workflow images.
+- `site/src/index.css` — updated the screenshot frame ratio and image fit behavior to avoid cropping.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- All screenshots now show their full width instead of cropping both sides.
+- The page emphasizes accurate app visuals over decorative image fill.
+
+### Risk & Mitigation
+- Risk: Showing the full images can leave a little more background space inside the frame.
+- Mitigation: The frame keeps a dark background and matching aspect ratio so the result still looks intentional.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the site still builds successfully after the screenshot display change.

@@ -138,10 +138,10 @@ pre {
 .demo-frame {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgb(255 255 255 / 0.12);
+  border: 1px solid rgb(28 25 23 / 0.1);
   border-radius: 1.5rem;
   background: rgb(12 10 9);
-  aspect-ratio: 9 / 16;
+  aspect-ratio: 846 / 1237;
   box-shadow: 0 28px 70px rgb(15 23 42 / 0.32);
 }
 
@@ -149,8 +149,15 @@ pre {
   display: block;
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   animation: hero-image-fade 280ms ease;
+}
+
+.demo-image-static {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 @keyframes hero-image-fade {

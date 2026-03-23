@@ -82,7 +82,7 @@ function App() {
             <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-blue-300/30 blur-3xl" />
             <div className="absolute bottom-0 left-0 h-32 w-32 rounded-full bg-amber-300/40 blur-3xl" />
             <div className="relative">
-              <div className="demo-frame mx-auto max-w-[18rem]">
+              <div className="demo-frame mx-auto max-w-[22rem] lg:max-w-[24rem]">
                 <img
                   key={heroFrame}
                   alt={
@@ -112,10 +112,10 @@ function App() {
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-700">
                 {item.label}
               </p>
-              <div className="mt-4 overflow-hidden rounded-[1.5rem] border border-stone-950/10 bg-stone-950 shadow-[0_20px_55px_rgba(15,23,42,0.18)]">
+              <div className="demo-frame mt-4 shadow-[0_20px_55px_rgba(15,23,42,0.18)]">
                 <img
                   alt={item.title}
-                  className="block aspect-[9/16] w-full object-cover"
+                  className="demo-image-static"
                   loading="lazy"
                   src={item.image}
                 />
