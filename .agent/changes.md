@@ -480,3 +480,32 @@
 
 ### Tests / Verification
 - Ran `npm run build` in `site/` and confirmed the site still builds successfully after adding the Windows icon.
+
+**2026-03-25 20:24 (Asia/Taipei) — Add GitHub Pages deployment guide**
+
+### Summary
+- Added a repository-specific runbook for publishing the `site/` app to GitHub Pages through the existing GitHub Actions workflow.
+
+### Context / Goal
+- The repository already had a Pages deployment workflow, but it did not have a concise operator-facing procedure for enabling and running it on GitHub.
+- The goal was to document the exact GitHub settings, push flow, verification URL, and repository-name-sensitive configuration for this repo.
+
+### Changes
+- Added a new deployment guide under `Doc/` that explains how to enable `GitHub Actions` as the Pages source and publish from `main`.
+- Documented the current workflow file, build output path, expected public URL, manual dispatch path, and the config files that must change if the repository name changes.
+
+### Files Touched
+- `Doc/GitHubActions_Pages_Deployment.md` — added the GitHub Pages publication procedure for this repository's existing Actions-based deployment flow.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- No runtime behavior changed.
+- Maintainers now have a concrete publish procedure aligned with the current `deploy-pages.yml` and Vite base-path setup.
+
+### Risk & Mitigation
+- Risk: The guide can become stale if the repository name, owner, or workflow path changes later.
+- Mitigation: The document points directly to the current workflow and explicitly calls out `site/vite.config.ts` and `site/src/data/siteContent.ts` as the first review points after a rename.
+
+### Tests / Verification
+- Ran `npm ci` in `site/` to install local dependencies required by the existing build.
+- Ran `npm run build` in `site/` and confirmed the Vite production build succeeds.
