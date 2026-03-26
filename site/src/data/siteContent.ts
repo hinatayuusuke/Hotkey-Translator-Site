@@ -38,6 +38,8 @@ const repositoryRoot = `https://github.com/${repository.owner}/${repository.name
 // site can send users to the correct releases and documentation without extra
 // runtime configuration.
 export const externalLinks = {
+  download:
+    'https://github.com/hinatayuusuke/Hotkey-Translator-Site/releases/download/V1.0.0/Hotkey-Translator-online.zip',
   releases: `${repositoryRoot}/releases`,
   repository: repositoryRoot,
   issues: `${repositoryRoot}/issues`,

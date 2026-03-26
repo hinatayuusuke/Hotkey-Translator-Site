@@ -77,7 +77,7 @@ function App() {
               services, or advanced fullscreen capture.
             </p>
             <div className="flex flex-wrap items-center gap-4">
-              <a className="button-primary" href={externalLinks.releases} target="_blank" rel="noreferrer">
+              <a className="button-primary" href={externalLinks.download} target="_blank" rel="noreferrer">
                 Download latest release
               </a>
               <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-stone-500">

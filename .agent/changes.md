@@ -480,3 +480,31 @@
 
 ### Tests / Verification
 - Ran `npm run build` in `site/` and confirmed the site still builds successfully after adding the Windows icon.
+
+**2026-03-26 18:55 (Asia/Taipei) — Point Hero download CTA to release ZIP**
+
+### Summary
+- Updated the main download CTA so it opens the provided release ZIP directly.
+
+### Context / Goal
+- The Hero area already exposed the primary download action, but it still pointed to the generic releases page.
+- The goal was to use the exact release asset URL provided for the download link without changing the rest of the repository links.
+
+### Changes
+- Added a dedicated `externalLinks.download` URL for the direct ZIP asset.
+- Switched the Hero download button to use the direct download URL instead of the releases index.
+
+### Files Touched
+- `site/src/data/siteContent.ts` — added the direct download asset URL alongside the existing repository links.
+- `site/src/App.tsx` — updated the Hero download CTA to use the new direct download link.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- Clicking the main download button now starts from the specific `V1.0.0` ZIP asset instead of opening the releases list page.
+
+### Risk & Mitigation
+- Risk: The direct asset URL can become stale when a newer release replaces `V1.0.0`.
+- Mitigation: The direct URL is isolated in `externalLinks.download`, so future release updates only require a single constant change.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the site still builds successfully after the link update.
