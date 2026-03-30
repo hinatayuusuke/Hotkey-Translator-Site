@@ -655,3 +655,86 @@
 
 ### Tests / Verification
 - Ran `npm run build` in `site/` and confirmed the Vite production build still succeeds after the English copy re-sync.
+
+**2026-03-30 11:43 (Asia/Taipei) — Use Japanese-appropriate fonts when locale is ja**
+
+### Summary
+- Added locale-specific font handling so Japanese pages use `Noto Sans JP` instead of falling back from the English display font.
+
+### Context / Goal
+- Japanese headings such as the Hero title were inheriting `.display-type`, which was configured for the English serif font `Fraunces`.
+- The goal was to keep the English typographic direction intact while giving all Japanese text that relied on that styling a more appropriate font.
+
+### Changes
+- Added `Noto Sans JP` to the Google Fonts request in the site entry HTML.
+- Applied locale-specific CSS so `html[lang="ja"]` uses `Noto Sans JP` for general text and overrides `.display-type` to use the same Japanese font with heading-appropriate weight and tracking.
+
+### Files Touched
+- `site/index.html` — added the `Noto Sans JP` font family to the Google Fonts stylesheet request.
+- `site/src/index.css` — added `html[lang="ja"]` font overrides for Japanese body text and display headings.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- Japanese text now renders with a consistent sans-serif family chosen for Japanese readability instead of environment-dependent serif fallbacks.
+- English pages still use the previous `Fraunces` and `Public Sans` combination.
+
+### Risk & Mitigation
+- Risk: Loading an extra webfont increases font payload slightly for the site.
+- Mitigation: The change is limited to one additional family and avoids heavier structural refactors while fixing the locale mismatch directly.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the Vite production build still succeeds after the locale-specific font update.
+
+**2026-03-30 11:45 (Asia/Taipei) — Keep Hotkey Translator wordmark consistent across locales**
+
+### Summary
+- Fixed the `Hotkey Translator` title line so it keeps the English display font even when the page is shown in Japanese.
+
+### Context / Goal
+- After adding Japanese-specific font overrides, the Hero wordmark was also switching away from the English display font.
+- The goal was to keep Japanese body and heading copy in `Noto Sans JP` while preserving the product wordmark styling across locales.
+
+### Changes
+- Added a dedicated `brand-wordmark` class for the `Hotkey Translator` line in the Hero title.
+- Kept that class pinned to the English display font so the locale-wide Japanese heading override does not affect the product name.
+
+### Files Touched
+- `site/src/App.tsx` — applied the dedicated wordmark class to the `Hotkey Translator` title line.
+- `site/src/index.css` — added the `brand-wordmark` font rule that preserves the English display font across locales.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- The product name now keeps the same visual identity in both English and Japanese modes, while the Japanese subtitle line still uses the Japanese-appropriate font.
+
+### Risk & Mitigation
+- Risk: Mixing an English display font with Japanese subtitle text can increase contrast between the two lines.
+- Mitigation: The override is limited to the product name only, which is the intended brand wordmark rather than general UI copy.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the Vite production build still succeeds after the wordmark font override.
+
+**2026-03-30 11:47 (Asia/Taipei) — Normalize wordmark weight across locales**
+
+### Summary
+- Fixed the `Hotkey Translator` wordmark so Japanese mode no longer makes it appear heavier than English mode.
+
+### Context / Goal
+- The Japanese locale override for `.display-type` was increasing font weight and tightening letter spacing for headings.
+- The goal was to keep the product wordmark visually identical across locales while preserving the Japanese font treatment for the subtitle and other headings.
+
+### Changes
+- Explicitly set `font-weight` and `letter-spacing` on `.brand-wordmark` so it no longer inherits the heavier Japanese heading style.
+
+### Files Touched
+- `site/src/index.css` — pinned the wordmark's weight and tracking to the English display style.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- `Hotkey Translator` now renders with the same apparent weight and spacing in both English and Japanese modes.
+
+### Risk & Mitigation
+- Risk: The explicit weight may need minor tuning if the font load changes later.
+- Mitigation: The override is isolated to the wordmark class, so future adjustments remain localized.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the Vite production build still succeeds after the wordmark weight fix.

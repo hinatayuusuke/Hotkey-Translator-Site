@@ -48,6 +48,22 @@ pre {
   font-family: "Fraunces", Georgia, serif;
 }
 
+.brand-wordmark {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+html[lang="ja"] {
+  font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic UI", sans-serif;
+}
+
+html[lang="ja"] .display-type {
+  font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic UI", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
 .section-shell {
   margin-inline: auto;
   max-width: 80rem;

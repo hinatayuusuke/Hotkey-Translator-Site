@@ -132,7 +132,7 @@ function App() {
               </div>
             </div>
             <h1 className="display-type max-w-4xl text-stone-950">
-              <span className="block bg-gradient-to-r from-blue-700 via-cyan-600 to-blue-500 bg-clip-text text-6xl leading-[0.9] text-transparent drop-shadow-[0_10px_22px_rgba(37,99,235,0.18)] sm:text-7xl lg:text-8xl">
+              <span className="brand-wordmark block bg-gradient-to-r from-blue-700 via-cyan-600 to-blue-500 bg-clip-text text-6xl leading-[0.9] text-transparent drop-shadow-[0_10px_22px_rgba(37,99,235,0.18)] sm:text-7xl lg:text-8xl">
                 <span className="inline-flex items-center gap-[0.18em]">
                   <img
                     alt=""
