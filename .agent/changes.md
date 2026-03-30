@@ -601,3 +601,57 @@
 
 ### Tests / Verification
 - Ran `npm run build` in `site/` and confirmed the Vite production build succeeds after the locale refactor and toggle implementation.
+
+**2026-03-30 11:28 (Asia/Taipei) — Align English copy with Japanese locale content**
+
+### Summary
+- Revised the English locale copy so its messaging matches the current Japanese version more closely.
+
+### Context / Goal
+- The Japanese locale content had been updated and now represented the intended messaging baseline for the landing page.
+- The goal was to reduce meaning drift between `ja` and `en` without changing structure or link behavior.
+
+### Changes
+- Updated English meta descriptions, Hero copy, workflow text, feature descriptions, and repository-link section text to reflect the same intent as the Japanese content.
+- Kept the existing link targets and locale structure unchanged while adjusting only the English wording.
+
+### Files Touched
+- `site/src/data/siteContent.en.ts` — revised English strings to match the Japanese locale content more closely.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- English visitors now see copy that better matches the Japanese version's scope and emphasis, especially around optional downloads and workflow explanations.
+
+### Risk & Mitigation
+- Risk: Literal alignment can make English phrasing sound less natural in some places.
+- Mitigation: The update aimed for semantic alignment while keeping the English copy readable and concise.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the Vite production build still succeeds after the English copy update.
+
+**2026-03-30 11:37 (Asia/Taipei) — Re-sync English copy with revised Japanese content**
+
+### Summary
+- Updated the English locale strings again to match the latest Japanese wording changes.
+
+### Context / Goal
+- The Japanese locale content was adjusted after the previous English sync, so the English copy had drifted from the intended baseline again.
+- The goal was to keep the English messaging aligned with the revised Japanese version without changing layout, types, or link targets.
+
+### Changes
+- Updated the English Hero title and description to reflect the new emphasis on checking results directly from the app and optionally downloading extra components.
+- Revised the workflow, features, and links section copy to mirror the latest Japanese wording more closely.
+
+### Files Touched
+- `site/src/data/siteContent.en.ts` — revised English locale strings to match the latest Japanese content updates.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- English visitors now see wording that stays aligned with the latest Japanese version's emphasis and terminology.
+
+### Risk & Mitigation
+- Risk: Repeated semantic alignment can make some English phrases sound more literal than idiomatic.
+- Mitigation: The update kept the structure intact and aimed for readable English while matching the Japanese intent.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the Vite production build still succeeds after the English copy re-sync.

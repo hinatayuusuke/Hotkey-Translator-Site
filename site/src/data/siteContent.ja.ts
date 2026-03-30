@@ -4,10 +4,10 @@ export const jaSiteContent: SiteContent = {
   meta: {
     title: 'Hotkey Translator | Windows 向け OCR・翻訳オーバーレイ',
     description:
-      'Hotkey Translator は、Windows 向けの OCR・翻訳オーバーレイです。配布版のダウンロード、セットアップ情報、関連ドキュメントを確認できます。',
+      'Hotkey Translator は、Windows 向けの OCR・翻訳オーバーレイです。このサイトで配布版のダウンロード、セットアップ情報、関連ドキュメントを紹介します。',
     ogTitle: 'Hotkey Translator',
     ogDescription:
-      'Windows 向け OCR・翻訳オーバーレイ。配布版、セットアップ情報、関連リンクをまとめて確認できます。',
+      'Windows 向け OCR・翻訳オーバーレイ。配布版、セットアップ情報、関連リンクを紹介します。',
   },
   localeToggle: {
     label: '言語',
@@ -18,9 +18,9 @@ export const jaSiteContent: SiteContent = {
   },
   hero: {
     productName: 'Hotkey Translator',
-    title: '使っているアプリを離れずに、画面上の文字を読めます。',
+    title: 'アプリ上から翻訳結果を直接確認',
     description:
-      'Hotkey Translator は、ホットキーで文字を取り込み、OCR と翻訳を実行し、その結果をオーバーレイで表示できます。まずは標準のデスクトップ向けワークフローから始め、ローカルモデル、Python OCR サービス、高度なフルスクリーンキャプチャが必要な場合だけ追加の補助機能を使う構成です。',
+      'Hotkey Translator は、ホットキーで文字を取り込み、OCR と翻訳を実行し、その結果をオーバーレイで表示します。標準機能だけでなく、ローカルモデル、Python OCR サービス、高度なフルスクリーンキャプチャが必要な場合はさらに追加でダウンロードできます。',
     downloadLabel: '最新リリースをダウンロード',
     osLabel: 'Windows 10 / 11',
     imageAlt: {
@@ -30,63 +30,63 @@ export const jaSiteContent: SiteContent = {
   },
   workflow: {
     eyebrow: '使い方',
-    title: 'ワークフローを 3 つの画面で確認できます。',
+    title: '以下で使用方法を簡単に紹介します。',
     description: 'Original、ROI、Overlay の流れです。',
     items: [
       {
         id: 'original',
         label: 'Original',
-        title: 'まず元の画面をそのまま確認',
+        title: '元の画面のまま',
         description: 'ゲームやアプリの表示を維持したまま使えます。',
       },
       {
         id: 'roi',
         label: 'ROI',
-        title: '文字がある範囲だけを切り取る',
+        title: '文字がある範囲だけを囲む',
         description: '読み取りたいテキスト領域だけを選択します。',
       },
       {
         id: 'overlay',
         label: 'Overlay',
-        title: '結果を元画面の上に重ねて読む',
+        title: '画面にオーバーレイが表示されます',
         description: 'ウィンドウを切り替えずに翻訳結果を確認できます。',
       },
     ],
   },
   features: {
     eyebrow: '主な強み',
-    title: 'ダウンロード前に、このデスクトップワークフローでできることを把握できます。',
+    title: 'アプリの主な機能を紹介します。',
     description:
-      '重要なのは利用者側の結果です。すばやい再実行、読みやすいオーバーレイ表示、柔軟な OCR / 翻訳エンジンの選択、そして標準フローで足りない時だけ使う追加キャプチャ経路に絞っています。',
+      'ワンキーで実行、読みやすいオーバーレイ表示、柔軟な OCR / 翻訳エンジンが選択でき、標準機能が足りない場合はさらに高度なOCRと翻訳エンジンを追加ダウンロードできます。',
     itemLabel: '特徴',
     items: [
       {
-        title: '作業の流れを止めずに画面上の文字を読める',
+        title: '作業の流れを止めずに画面上で翻訳結果を確認できる',
         description:
           'ゲーム、動画、デスクトップアプリ上の文字を取り込み、その結果をオーバーレイ上でそのまま確認できます。',
       },
       {
-        title: 'ホットキー、ROI プリセット、ウィンドウ固定で繰り返しが速い',
+        title: 'ホットキー、ROI プリセット、ウィンドウ固定で簡単実行',
         description:
-          '対象範囲を決めた後は、ホットキーと保存済みの領域設定で同じ流れを素早く再実行できます。',
+          '対象範囲を決めた後は、ホットキーと保存済みの領域設定で同じ流れを簡単に実行できます。',
       },
       {
         title: '環境に合わせて OCR と翻訳の構成を選べる',
         description:
-          'まずは軽量な構成から始め、速度、品質、ローカル推論の要件に応じて別の OCR / 翻訳エンジンへ広げられます。',
+          'まずは軽量な構成から始め、速度、品質、ローカル推論の要件に応じて別の OCR / 翻訳エンジンをダウンロードできます。',
       },
       {
-        title: '標準キャプチャで足りない場合だけ高度な経路を使える',
+        title: '標準キャプチャで足りない場合はさらに高度な経路を使える',
         description:
-          '基本は標準キャプチャで進めつつ、難しいケースでは Graphics Hook や mirror fullscreen を追加できます。',
+          '標準キャプチャで画面取得が難しいケースでは Graphics Hook や mirror fullscreen も選択できます。',
       },
     ],
   },
   links: {
     eyebrow: '関連リンク',
-    title: 'ダウンロード、ドキュメント、Issue 報告を 1 クリックで開けます。',
+    title: 'ダウンロード、ドキュメント、Issue 報告リンク',
     description:
-      'ランディングページは要点だけに絞り、詳しいセットアップ手順、Issue 管理、リリース情報は必要な時にリポジトリ側へ移動できる構成にしています。',
+      '詳しいセットアップ手順、Issue 管理、リリース情報は必要な時にリポジトリを参照してください。',
     itemEyebrow: '外部リンク',
     openLabel: 'リンクを開く',
     items: [
@@ -108,7 +108,7 @@ export const jaSiteContent: SiteContent = {
       {
         title: 'ソースコードのリポジトリを見る',
         href: externalLinks.sourceRepository,
-        description: 'ソースコードとプロジェクト全体の文脈を確認できます。',
+        description: 'ソースコードとプロジェクト全体を確認できます。',
       },
       {
         title: 'Issue を報告する',
