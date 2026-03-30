@@ -738,3 +738,29 @@
 
 ### Tests / Verification
 - Ran `npm run build` in `site/` and confirmed the Vite production build still succeeds after the wordmark weight fix.
+
+**2026-03-30 17:47 (Asia/Taipei) — Update direct download link to V1.0.1**
+
+### Summary
+- Updated the site's direct download URL to the `V1.0.1` release asset.
+
+### Context / Goal
+- The Hero download CTA uses a single shared direct asset URL for the latest published package.
+- The goal was to replace the previous `V1.0.0` asset link with the latest `V1.0.1` download URL without changing any other repository links.
+
+### Changes
+- Updated `externalLinks.download` to point at the `V1.0.1` GitHub Releases ZIP asset.
+
+### Files Touched
+- `site/src/data/siteContentShared.ts` — changed the direct download URL from `V1.0.0` to `V1.0.1`.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- Clicking the main download button now opens the `V1.0.1` ZIP asset directly.
+
+### Risk & Mitigation
+- Risk: The direct asset URL will need another update when the next release is published.
+- Mitigation: The URL remains centralized in a single shared constant, so future updates stay localized to one edit.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the Vite production build still succeeds after the direct download link update.
