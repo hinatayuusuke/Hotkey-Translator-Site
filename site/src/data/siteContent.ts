@@ -42,6 +42,7 @@ export const externalLinks = {
     'https://github.com/hinatayuusuke/Hotkey-Translator-Site/releases/download/V1.0.0/Hotkey-Translator-online.zip',
   releases: `${repositoryRoot}/releases`,
   repository: repositoryRoot,
+  sourceRepository: 'https://github.com/hinatayuusuke/Hotkey-Translator',
   issues: `${repositoryRoot}/issues`,
   readmeEn: `${repositoryRoot}/blob/main/Doc/README.en.md`,
   readmeJa: `${repositoryRoot}/blob/main/Doc/README.md`,
@@ -157,7 +158,7 @@ export const resourceLinks: ResourceLink[] = [
   },
   {
     title: 'Browse the source repository',
-    href: externalLinks.repository,
+    href: externalLinks.sourceRepository,
     description: 'Source code and project context.',
   },
   {

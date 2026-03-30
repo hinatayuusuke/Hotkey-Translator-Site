@@ -539,3 +539,32 @@
 - Ran `npm ci` in `site/` to install local dependencies required by the existing build.
 - Ran `npm run build` in `site/` and confirmed the Vite production build succeeds.
 >>>>>>> 27d0c18f278e486a37c20f079c69c02e9917aab8
+
+**2026-03-30 09:41 (Asia/Taipei) — Add hero icon and retarget source repository link**
+
+### Summary
+- Added the app icon before the Hero title and retargeted the source-repository resource link to the main application repository.
+
+### Context / Goal
+- The Hero title needed a stronger visual identity without replacing letters inline.
+- The `Browse the source repository` card needed to point to `https://github.com/hinatayuusuke/Hotkey-Translator` instead of the site repository.
+
+### Changes
+- Imported `site/src/assets/Icon.png` into the Hero title and rendered it at the start of the main wordmark.
+- Added a dedicated `externalLinks.sourceRepository` URL and switched only the `Browse the source repository` card to use it.
+
+### Files Touched
+- `site/src/App.tsx` — added the Hero-leading icon image before the title text.
+- `site/src/data/siteContent.ts` — added the main application repository URL and applied it to the source-repository resource link.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- The landing page title now shows the app icon before `Hotkey Translator`.
+- The source-repository card now opens the main `Hotkey-Translator` repository, while release/download links still point to the site repository where the release asset is published.
+
+### Risk & Mitigation
+- Risk: The imported icon asset will not ship if `site/src/assets/Icon.png` is not committed with the rest of the changes.
+- Mitigation: The build succeeded with the local asset reference; keep `Icon.png` in version control together with this UI change.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the Vite production build succeeds with the new icon import and updated link target.
