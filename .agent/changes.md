@@ -568,3 +568,36 @@
 
 ### Tests / Verification
 - Ran `npm run build` in `site/` and confirmed the Vite production build succeeds with the new icon import and updated link target.
+
+**2026-03-30 10:55 (Asia/Taipei) — Add switchable Japanese site copy**
+
+### Summary
+- Added an in-page English/Japanese language switch with localized Hero, section, footer, and repository-link copy.
+
+### Context / Goal
+- The landing page needed a Japanese version that users could switch to without splitting the GitHub Pages site into separate routes.
+- The goal was to keep the current single-page structure, preserve existing visuals, and make the selected language shareable and persistent.
+
+### Changes
+- Split visible site copy into English and Japanese locale data files and introduced a shared content type for the page sections.
+- Added a language toggle in the Hero area and wired locale resolution through `?lang=`, `localStorage`, and browser language detection.
+- Synced the selected locale to `document.title`, key meta tags, and `html[lang]` so the page state stays consistent after switching languages.
+
+### Files Touched
+- `site/src/App.tsx` — added locale state, URL/storage syncing, metadata updates, and the language toggle UI.
+- `site/src/data/siteContent.ts` — replaced the previous single-language exports with the locale selector and typed content map.
+- `site/src/data/siteContentShared.ts` — added shared locale/content types and centralized external links.
+- `site/src/data/siteContent.en.ts` — added the English page copy as structured locale data.
+- `site/src/data/siteContent.ja.ts` — added the Japanese page copy as structured locale data.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- Visitors can now switch between English and Japanese without leaving the page.
+- The selected language persists across reloads and is reflected in shareable URLs such as `?lang=ja`.
+
+### Risk & Mitigation
+- Risk: Newly added copy can drift between locales when future text edits touch only one language file.
+- Mitigation: Both locales now share a single `SiteContent` shape, which keeps the required fields aligned at build time.
+
+### Tests / Verification
+- Ran `npm run build` in `site/` and confirmed the Vite production build succeeds after the locale refactor and toggle implementation.
