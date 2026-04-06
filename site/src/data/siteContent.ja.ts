@@ -18,9 +18,9 @@ export const jaSiteContent: SiteContent = {
   },
   hero: {
     productName: 'Hotkey Translator',
-    title: 'アプリ上から翻訳結果を直接確認',
+    title: '未翻訳ゲームをそのまま日本語で遊べる',
     description:
-      'Hotkey Translator は、ホットキーで文字を取り込み、OCR と翻訳を実行し、その結果をオーバーレイで表示します。標準機能だけでなく、ローカルモデル、Python OCR サービス、高度なフルスクリーンキャプチャが必要な場合はさらに追加でダウンロードできます。',
+      'ホットキーでテキストをキャプチャし、瞬時に翻訳してシームレスなオーバーレイとして表示します。標準機能が足りない場合はローカルモデルや高度なOCRエンジンを簡単に追加できます',
     downloadLabel: '最新リリースをダウンロード',
     osLabel: 'Windows 10 / 11',
     imageAlt: {
@@ -41,7 +41,7 @@ export const jaSiteContent: SiteContent = {
       },
       {
         id: 'roi',
-        label: 'ROI',
+        label: 'Select the text area',
         title: '文字がある範囲だけを囲む',
         description: '読み取りたいテキスト領域だけを選択します。',
       },
@@ -66,7 +66,7 @@ export const jaSiteContent: SiteContent = {
           'ゲーム、動画、デスクトップアプリ上の文字を取り込み、その結果をオーバーレイ上でそのまま確認できます。',
       },
       {
-        title: 'ホットキー、ROI プリセット、ウィンドウ固定で簡単実行',
+        title: 'ホットキー、選択領域プリセット、ウィンドウ固定で簡単実行',
         description:
           '対象範囲を決めた後は、ホットキーと保存済みの領域設定で同じ流れを簡単に実行できます。',
       },

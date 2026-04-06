@@ -18,9 +18,9 @@ export const enSiteContent: SiteContent = {
   },
   hero: {
     productName: 'Hotkey Translator',
-    title: 'Check translated results directly from your app.',
+    title: 'Play untranslated games seamlessly.',
     description:
-      'Hotkey Translator captures text with hotkeys, runs OCR and translation, and displays the result as an overlay. In addition to the standard features, you can download extra components when you need local models, Python OCR services, or advanced fullscreen capture.',
+      'Hotkey Translator captures text with a hotkey, translates it instantly, and displays it as a seamless overlay. Need more power? You can easily add local models or advanced OCR engines to fit your setup.',
     downloadLabel: 'Download latest release',
     osLabel: 'Windows 10 / 11',
     imageAlt: {
@@ -41,7 +41,7 @@ export const enSiteContent: SiteContent = {
       },
       {
         id: 'roi',
-        label: 'ROI',
+        label: 'Select the text area',
         title: 'Mark only the area that contains text',
         description: 'Select only the text area you want to read.',
       },
@@ -71,7 +71,7 @@ export const enSiteContent: SiteContent = {
           'After setting the target area, you can run the same flow easily with hotkeys and saved area settings.',
       },
       {
-        title: 'Choose the OCR and translation stack that fits your setup',
+        title: 'Choose the OCR and translation engine that fits your setup',
         description:
           'Start with a lightweight setup, then download other OCR or translation engines when you need different speed, quality, or local inference.',
       },
