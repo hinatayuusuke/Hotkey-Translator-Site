@@ -22,6 +22,7 @@ export const enSiteContent: SiteContent = {
     description:
       'Hotkey Translator captures text with a hotkey, translates it instantly, and displays it as a seamless overlay. Need more power? You can easily add local models or advanced OCR engines to fit your setup.',
     downloadLabel: 'Download latest release',
+    stableDownloadLabel: 'Download stable release',
     osLabel: 'Windows 10 / 11',
     imageAlt: {
       original: 'Original scene before overlay translation',

@@ -155,6 +155,9 @@ function App() {
               <a className="button-primary" href={externalLinks.download} target="_blank" rel="noreferrer">
                 {content.hero.downloadLabel}
               </a>
+              <a className="button-secondary" href={externalLinks.stableDownload} target="_blank" rel="noreferrer">
+                {content.hero.stableDownloadLabel}
+              </a>
               <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-stone-500">
                 <svg
                   aria-hidden="true"

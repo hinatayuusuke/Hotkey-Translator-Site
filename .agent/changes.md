@@ -764,3 +764,38 @@
 
 ### Tests / Verification
 - Ran `npm run build` in `site/` and confirmed the Vite production build still succeeds after the direct download link update.
+
+**2026-05-22 10:36 (Asia/Taipei) — Split latest and stable download buttons**
+
+### Summary
+- Updated the main download CTA to V1.0.2 and added a separate stable download CTA for V1.0.1.
+
+### Context / Goal
+- The site needed the existing download button to point to the V1.0.2 release asset.
+- The site also needed a clearly separate stable download button that keeps the V1.0.1 asset available.
+
+### Changes
+- Changed `externalLinks.download` from the V1.0.1 asset URL to the V1.0.2 asset URL.
+- Added `externalLinks.stableDownload` for the V1.0.1 asset URL.
+- Added localized stable download labels for English and Japanese content.
+- Rendered a secondary stable download button beside the existing primary Hero download button.
+
+### Files Touched
+- `site/src/data/siteContentShared.ts` — updated the latest download URL, added the stable download URL, and extended the Hero content type.
+- `site/src/data/siteContent.en.ts` — added the English stable download button label.
+- `site/src/data/siteContent.ja.ts` — added the Japanese stable download button label.
+- `site/src/App.tsx` — added the Hero stable download button using the existing secondary button style.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- The primary download button now opens the V1.0.2 ZIP asset.
+- The new stable download button opens the V1.0.1 ZIP asset.
+- No data or compatibility migration is required.
+
+### Risk & Mitigation
+- Risk: Direct release asset URLs must be updated manually when release policy changes.
+- Mitigation: Both download URLs remain centralized in `externalLinks`, and the stable URL is documented with an inline note.
+
+### Tests / Verification
+- Verified the V1.0.2 release asset URL through the GitHub Releases API.
+- Ran `npm run build` in `site/` and confirmed `tsc && vite build` succeeds.

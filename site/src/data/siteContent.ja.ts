@@ -22,6 +22,7 @@ export const jaSiteContent: SiteContent = {
     description:
       'ホットキーでテキストをキャプチャし、瞬時に翻訳してシームレスなオーバーレイとして表示します。標準機能が足りない場合はローカルモデルや高度なOCRエンジンを簡単に追加できます',
     downloadLabel: '最新リリースをダウンロード',
+    stableDownloadLabel: '安定版をダウンロード',
     osLabel: 'Windows 10 / 11',
     imageAlt: {
       original: '翻訳オーバーレイを表示する前の元画面',

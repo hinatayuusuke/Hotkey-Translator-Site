@@ -36,6 +36,7 @@ export type SiteContent = {
     title: string
     description: string
     downloadLabel: string
+    stableDownloadLabel: string
     osLabel: string
     imageAlt: Record<'original' | 'overlay', string>
   }
@@ -86,6 +87,10 @@ const repositoryRoot = `https://github.com/${repository.owner}/${repository.name
 // runtime configuration.
 export const externalLinks = {
   download:
+    'https://github.com/hinatayuusuke/Hotkey-Translator-Site/releases/download/V1.0.2/Hotkey-Translator-online.zip',
+  // NOTE: V1.0.1 remains exposed separately because V1.0.2 changes the
+  // translation feature set and the release notes direct some users back here.
+  stableDownload:
     'https://github.com/hinatayuusuke/Hotkey-Translator-Site/releases/download/V1.0.1/Hotkey-Translator-online.zip',
   releases: `${repositoryRoot}/releases`,
   repository: repositoryRoot,
