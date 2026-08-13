@@ -87,7 +87,7 @@ const repositoryRoot = `https://github.com/${repository.owner}/${repository.name
 // runtime configuration.
 export const externalLinks = {
   download:
-    'https://github.com/hinatayuusuke/Hotkey-Translator-Site/releases/download/V1.0.8/Hotkey-Translator-online.zip',
+    'https://github.com/hinatayuusuke/Hotkey-Translator-Site/releases/download/V1.0.9/Hotkey-Translator-online.zip',
   // NOTE: V1.0.1 remains exposed separately because V1.0.2 changes the
   // translation feature set and the release notes direct some users back here.
   stableDownload:
