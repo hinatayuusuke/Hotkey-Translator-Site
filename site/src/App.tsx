@@ -7,6 +7,7 @@ import { SectionHeading } from './components/SectionHeading'
 import {
   externalLinks,
   isLocale,
+  productReleases,
   siteContentByLocale,
   supportedLocales,
   type Locale,
@@ -152,11 +153,17 @@ function App() {
               {content.hero.description}
             </p>
             <div className="flex flex-wrap items-center gap-4">
-              <a className="button-primary" href={externalLinks.download} target="_blank" rel="noreferrer">
-                {content.hero.downloadLabel}
+              <a className="button-primary flex-col gap-0.5" href={externalLinks.download} target="_blank" rel="noreferrer">
+                <span>{content.hero.downloadLabel}</span>
+                <span className="text-xs font-medium tracking-[0.08em] opacity-80">
+                  {productReleases.latest.version}
+                </span>
               </a>
-              <a className="button-secondary" href={externalLinks.stableDownload} target="_blank" rel="noreferrer">
-                {content.hero.stableDownloadLabel}
+              <a className="button-secondary flex-col gap-0.5" href={externalLinks.stableDownload} target="_blank" rel="noreferrer">
+                <span>{content.hero.stableDownloadLabel}</span>
+                <span className="text-xs font-medium tracking-[0.08em] text-stone-500">
+                  {productReleases.stable.version}
+                </span>
               </a>
               <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-stone-500">
                 <svg

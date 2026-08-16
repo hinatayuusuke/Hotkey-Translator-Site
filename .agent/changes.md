@@ -799,3 +799,36 @@
 ### Tests / Verification
 - Verified the V1.0.2 release asset URL through the GitHub Releases API.
 - Ran `npm run build` in `site/` and confirmed `tsc && vite build` succeeds.
+
+**2026-08-17 00:56 (Asia/Taipei) — Show release versions on download buttons**
+
+### Summary
+- Added the corresponding product version to each Hero download button and centralized release metadata.
+
+### Context / Goal
+- Users need to know which application version each download button provides before opening the release asset.
+- The displayed version and download URL should remain synchronized when a release is updated.
+
+### Changes
+- Added shared metadata for the latest `v1.0.10` and stable `v1.0.1` releases.
+- Generated both release asset URLs from the shared tag definitions.
+- Rendered each version as a secondary line within its corresponding download button.
+
+### Files Touched
+- `site/src/data/siteContentShared.ts` — added centralized release metadata and generated download URLs from release tags.
+- `site/src/data/siteContent.ts` — re-exported the shared release metadata for the UI.
+- `site/src/App.tsx` — added latest and stable version text to the respective Hero download buttons.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- The latest download button now displays `v1.0.10`, and the stable download button displays `v1.0.1`.
+- Existing download destinations remain unchanged.
+- No compatibility or data migration impact is expected.
+
+### Risk & Mitigation
+- Risk: Release metadata still requires a source update when the published version changes.
+- Mitigation: The display version and URL tag now live together in one shared definition, reducing mismatch risk.
+
+### Tests / Verification
+- Ran `npm run build` in `site/`; TypeScript checking and the Vite production build completed successfully.
+- Ran `git diff --check`; no whitespace errors were reported.

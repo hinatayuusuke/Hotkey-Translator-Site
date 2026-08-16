@@ -2,7 +2,11 @@ import { enSiteContent } from './siteContent.en'
 import { jaSiteContent } from './siteContent.ja'
 import type { Locale, SiteContent } from './siteContentShared'
 
-export { externalLinks, supportedLocales } from './siteContentShared'
+export {
+  externalLinks,
+  productReleases,
+  supportedLocales,
+} from './siteContentShared'
 export type { Locale, SiteContent, WorkflowStepId } from './siteContentShared'
 
 export const siteContentByLocale: Record<Locale, SiteContent> = {

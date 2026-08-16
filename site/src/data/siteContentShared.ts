@@ -82,16 +82,33 @@ const repository = {
 
 const repositoryRoot = `https://github.com/${repository.owner}/${repository.name}`
 
+const releaseAssetName = 'Hotkey-Translator-online.zip'
+
+export const productReleases = {
+  latest: {
+    version: 'v1.0.10',
+    tag: 'v1.0.10',
+  },
+  stable: {
+    version: 'v1.0.1',
+    tag: 'v1.0.1',
+  },
+} as const
+
+function getReleaseDownloadUrl(tag: string) {
+  return `${repositoryRoot}/releases/download/${tag}/${releaseAssetName}`
+}
+
 // NOTE: Keep these URLs aligned with the current GitHub remote so the Pages
 // site can send users to the correct releases and documentation without extra
 // runtime configuration.
 export const externalLinks = {
-  download:
-    'https://github.com/hinatayuusuke/Hotkey-Translator-Site/releases/download/V1.0.10/Hotkey-Translator-online.zip',
+  // WHY: The visible version and download URL share one release definition so
+  // a release update cannot leave the call-to-action label pointing elsewhere.
+  download: getReleaseDownloadUrl(productReleases.latest.tag),
   // NOTE: V1.0.1 remains exposed separately because V1.0.2 changes the
   // translation feature set and the release notes direct some users back here.
-  stableDownload:
-    'https://github.com/hinatayuusuke/Hotkey-Translator-Site/releases/download/V1.0.1/Hotkey-Translator-online.zip',
+  stableDownload: getReleaseDownloadUrl(productReleases.stable.tag),
   releases: `${repositoryRoot}/releases`,
   repository: repositoryRoot,
   sourceRepository: 'https://github.com/hinatayuusuke/Hotkey-Translator',
