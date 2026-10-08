@@ -86,8 +86,8 @@ const releaseAssetName = 'Hotkey-Translator-online.zip'
 
 export const productReleases = {
   latest: {
-    version: 'v1.0.11',
-    tag: 'v1.0.11',
+    version: 'v1.0.12',
+    tag: 'v1.0.12',
   },
   stable: {
     version: 'v1.0.1',
