@@ -832,3 +832,50 @@
 ### Tests / Verification
 - Ran `npm run build` in `site/`; TypeScript checking and the Vite production build completed successfully.
 - Ran `git diff --check`; no whitespace errors were reported.
+
+**2026-10-22 14:41 (Asia/Taipei) — Require the patched Node.js 22 runtime**
+
+### Summary
+- Updated local Node.js to v22.23.4 and aligned CI and npm installation requirements with the patched 22.x runtime.
+
+### Context / Goal
+- The October 21, 2026 Node.js security release fixes DNS, TLS, and Brotli vulnerabilities affecting the previously installed v22.14.0 runtime.
+- Ensure this static site's development and build environments use the patched runtime.
+
+### Changes
+- Added a shared .node-version pin and configured GitHub Actions to read it rather than accept any cached Node.js 22 release.
+- Added the ^22.23.4 engine requirement to the package manifest and root lockfile metadata, with engine-strict enabled for npm installs.
+- Replaced the local C:\3rd\nodejs\node.exe with the official v22.23.4 x64 executable after verifying its SHA-256 and valid OpenJS Foundation Authenticode signature.
+- Retained the previous executable at C:\3rd\nodejs\node-v22.14.0.exe.retired without terminating running processes. Kept the existing npm installation.
+
+### Files Touched
+- `.node-version` — pinned Node.js to 22.23.4 for local version managers and CI.
+- `.github/workflows/deploy-pages.yml` — switched setup-node to the shared version file and documented the security reason.
+- `site/.npmrc` — enabled strict enforcement of supported Node.js engines.
+- `site/package.json` — required patched Node.js 22.x.
+- `site/package-lock.json` — synchronized root engine metadata without changing dependency entries.
+- `.agent/changes.md` — appended this task entry.
+
+### Behavioral Impact
+- npm installation now rejects Node.js versions older than 22.23.4 and other major versions; supported runtime is patched Node.js 22.x.
+- CI will use 22.23.4 once the workflow changes are pushed. Public site content and download URLs are unchanged.
+- New invocations through the existing local node path use v22.23.4; already-running processes need restarting to use the replacement executable.
+
+### Risk & Mitigation
+- Risk: The local runtime path is shared with other projects, and strict engine requirements intentionally prevent installation on unsupported runtimes.
+- Mitigation: Stayed on Node.js 22, preserved npm, verified a clean dependency installation and production build, and retained the old executable for recovery only; it remains vulnerable and must not be used for normal development.
+- Risk: The pinned patch version requires deliberate updates for future security releases.
+- Mitigation: Keep .node-version and the package/lockfile engine minimum synchronized when applying the next security update.
+
+### Tests / Verification
+- Verified the official win-x64/node.exe SHA-256 against https://nodejs.org/dist/v22.23.4/SHASUMS256.txt and checked its Authenticode signature.
+- Confirmed default node --version returns v22.23.4 and npm --version remains 11.4.2.
+- Ran npm ci --no-audit --no-fund and npm run build successfully under v22.23.4.
+- Confirmed an installation dry run under v22.14.0 fails with EBADENGINE and npm engine-strict is true.
+- Checked accepted/rejected engine boundaries, shared CI version source, and unchanged dependency lock entries with assertions.
+- Ran git diff --check successfully.
+- Remote GitHub Actions execution and deployment were not performed; changes are local and uncommitted.
+
+### Migration
+- Existing contributors should switch to Node.js 22.23.4 or a newer 22.x patch before installing dependencies.
+- Official advisory: https://nodejs.org/en/blog/vulnerability/october-2026-security-releases
